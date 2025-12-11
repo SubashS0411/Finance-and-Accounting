@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apex Financial - Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script>
@@ -16,8 +20,8 @@
                         'growth-green': '#10b981',
                     },
                     fontFamily: {
-                        serif: ['Merriweather', 'serif'],
-                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Cairo', 'Inter', 'sans-serif'],
                     }
                 }
             }
@@ -62,7 +66,7 @@
                     <a href="login.html" class="text-gray-600 hover:text-oxford-blue font-medium">Client Login</a>
                     <a href="contact.html" class="bg-oxford-blue text-white px-4 py-2 rounded hover:bg-blue-800 transition">Book Consult</a>
                     <button id="rtl-toggle" class="text-gray-500 hover:text-oxford-blue transition" title="Toggle RTL">
-                        <i class="fas fa-globe text-xl"></i>
+                        <i class="ph ph-globe text-xl"></i>
                     </button>
                 </div>
 
@@ -76,11 +80,11 @@
         </div>
 
         <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="fixed inset-y-0 right-0 rtl:left-0 rtl:right-auto w-64 bg-white shadow-xl transform translate-x-full rtl:-translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
-            <div class="p-6">
-                <div class="flex justify-end rtl:justify-start mb-8">
-                    <button id="close-menu-btn" class="text-gray-500 hover:text-gray-800">
-                        <i class="fas fa-times text-2xl"></i>
+        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-0 bg-white shadow-xl overflow-hidden transition-all duration-500 ease-in-out z-40 md:hidden">
+            <div class="p-6 pt-24">
+                <div class="flex justify-between items-center mb-8">
+                    <button id="mobile-rtl-toggle" class="text-gray-500 hover:text-oxford-blue flex items-center gap-2">
+                        <i class="ph ph-globe text-xl"></i>
                     </button>
                 </div>
                 <div class="flex flex-col space-y-4">
@@ -88,150 +92,180 @@
                     <div class="space-y-2">
                         <span class="font-serif text-lg text-gray-800 font-semibold block">Home</span>
                         <div class="pl-4 rtl:pr-4 rtl:pl-0 flex flex-col space-y-2 border-l-2 rtl:border-r-2 rtl:border-l-0 border-gray-100">
-                            <a href="index.html" class="text-gray-600 hover:text-oxford-blue">Home Version 1</a>
-                            <a href="index2.html" class="text-gray-600 hover:text-oxford-blue">Home Version 2</a>
+                            <a href="index.html" class="mobile-link text-gray-600 hover:text-oxford-blue">Home Version 1</a>
+                            <a href="index2.html" class="mobile-link text-gray-600 hover:text-oxford-blue">Home Version 2</a>
                         </div>
                     </div>
 
-                    <a href="services.html" class="font-serif text-lg text-gray-800 hover:text-oxford-blue">Services</a>
-                    <a href="pricing.html" class="font-serif text-lg text-gray-800 hover:text-oxford-blue">Pricing</a>
-                    <a href="about.html" class="font-serif text-lg text-gray-800 hover:text-oxford-blue">About</a>
+                    <a href="services.html" class="mobile-link font-serif text-lg text-gray-800 hover:text-oxford-blue">Services</a>
+                    <a href="pricing.html" class="mobile-link font-serif text-lg text-gray-800 hover:text-oxford-blue">Pricing</a>
+                    <a href="about.html" class="mobile-link font-serif text-lg text-gray-800 hover:text-oxford-blue">About</a>
                     <hr class="border-gray-200">
-                    <a href="user-dashboard.html" class="text-lg text-oxford-blue font-medium">Dashboard</a>
-                    <a href="login.html" class="text-lg text-gray-600 hover:text-oxford-blue">Client Login</a>
-                    <a href="contact.html" class="bg-oxford-blue text-white px-4 py-2 rounded text-center hover:bg-blue-800">Book Consult</a>
+                    <a href="user-dashboard.html" class="mobile-link text-lg text-oxford-blue font-medium">Dashboard</a>
+                    <a href="login.html" class="mobile-link text-lg text-gray-600 hover:text-oxford-blue">Client Login</a>
+                    <a href="contact.html" class="mobile-link bg-oxford-blue text-white px-4 py-2 rounded text-center hover:bg-blue-800">Book Consult</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <header class="bg-oxford-blue text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="font-serif text-4xl font-bold mb-4">Our Services</h1>
-            <p class="text-blue-200 text-lg max-w-2xl mx-auto">Expert financial guidance tailored to your business needs.</p>
+    <header class="bg-oxford-blue text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span class="text-growth-green font-bold tracking-widest uppercase text-sm mb-2 block animate-fade-in-up">What We Do</span>
+            <h1 class="font-serif text-5xl font-bold mb-6 animate-fade-in-up delay-100">Capabilities</h1>
+            <p class="text-blue-200 text-xl max-w-2xl mx-auto animate-fade-in-up delay-200">Comprehensive financial solutions designed to elevate your business performance and ensure regulatory compliance.</p>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="flex flex-col md:flex-row gap-12">
-            
-            <!-- Sticky Sidebar -->
-            <aside class="w-full md:w-1/4">
-                <div class="sticky top-24 bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                    <h3 class="font-serif text-lg font-bold text-oxford-blue mb-4">Navigate</h3>
+    <!-- Service Cards Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Audit -->
+                <div class="group p-8 bg-white rounded-2xl border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up delay-100">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-oxford-blue transition-colors duration-300">
+                        <i class="fas fa-search text-oxford-blue text-2xl group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-gray-900 mb-4">Audit & Assurance</h3>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">Independent verification to enhance the reliability of your financial information for stakeholders.</p>
                     <ul class="space-y-3">
-                        <li><a href="#audit" class="block text-gray-600 hover:text-growth-green hover:pl-2 transition-all">Audit & Assurance</a></li>
-                        <li><a href="#tax" class="block text-gray-600 hover:text-growth-green hover:pl-2 transition-all">Tax Services</a></li>
-                        <li><a href="#advisory" class="block text-gray-600 hover:text-growth-green hover:pl-2 transition-all">Advisory</a></li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <i class="fas fa-check text-growth-green mr-3 text-xs"></i> Financial Statement Audits
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <i class="fas fa-check text-growth-green mr-3 text-xs"></i> Internal Control Reviews
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <i class="fas fa-check text-growth-green mr-3 text-xs"></i> Regulatory Compliance
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <i class="fas fa-check text-growth-green mr-3 text-xs"></i> Forensic Accounting
+                        </li>
                     </ul>
                 </div>
-            </aside>
 
-            <!-- Content Area -->
-            <main class="w-full md:w-3/4 space-y-16">
-                
-                <!-- Audit Section -->
-                <section id="audit" class="scroll-mt-24">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                            <i class="fas fa-search text-oxford-blue text-xl"></i>
-                        </div>
-                        <h2 class="font-serif text-3xl font-bold text-gray-900">Audit & Assurance</h2>
+                <!-- Card 2: Tax -->
+                <div class="group p-8 bg-white rounded-2xl border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up delay-200">
+                    <div class="w-14 h-14 bg-emerald-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-growth-green transition-colors duration-300">
+                        <i class="fas fa-file-invoice-dollar text-growth-green text-2xl group-hover:text-white transition-colors duration-300"></i>
                     </div>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        We provide independent audit services that enhance the reliability of information used by investors, creditors, and other stakeholders. Our approach is designed to provide reasonable assurance that financial statements are free from material misstatement.
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 class="font-bold text-oxford-blue mb-2">Sarbanes-Oxley Compliance</h4>
-                            <p class="text-sm text-gray-600">Comprehensive testing of internal controls over financial reporting.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 class="font-bold text-oxford-blue mb-2">Internal Controls</h4>
-                            <p class="text-sm text-gray-600">Evaluation and improvement of your organization's internal control systems.</p>
-                        </div>
-                    </div>
-                    <!-- FAQ Accordion -->
-                    <div class="space-y-4">
-                        <details class="group bg-white rounded-lg border border-gray-200">
-                            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4">
-                                <span>What is the typical duration of an audit?</span>
-                                <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-gray-400"></i></span>
-                            </summary>
-                            <div class="text-gray-600 mt-3 group-open:animate-fadeIn p-4 pt-0">
-                                The duration varies by company size, but typically ranges from 2 to 6 weeks of fieldwork.
-                            </div>
-                        </details>
-                    </div>
-                </section>
+                    <h3 class="font-serif text-2xl font-bold text-gray-900 mb-4">Tax Services</h3>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">Strategic tax planning and compliance to minimize liability and maximize growth potential.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <i class="fas fa-check text-growth-green mr-3 text-xs"></i> Corporate Tax Filing
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <i class="fas fa-check text-growth-green mr-3 text-xs"></i> International Tax Strategy
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <i class="fas fa-check text-growth-green mr-3 text-xs"></i> State & Local Tax (SALT)
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <i class="fas fa-check text-growth-green mr-3 text-xs"></i> IRS Representation
+                        </li>
+                    </ul>
+                </div>
 
-                <hr class="border-gray-200">
+                <!-- Card 3: Advisory -->
+                <div class="group p-8 bg-white rounded-2xl border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up delay-300">
+                    <div class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600 transition-colors duration-300">
+                        <i class="fas fa-chart-line text-purple-600 text-2xl group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-gray-900 mb-4">Strategic Advisory</h3>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">Actionable insights and strategies to drive business transformation and sustainable value.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <i class="fas fa-check text-growth-green mr-3 text-xs"></i> Mergers & Acquisitions
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <i class="fas fa-check text-growth-green mr-3 text-xs"></i> Business Valuation
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <i class="fas fa-check text-growth-green mr-3 text-xs"></i> Risk Management
+                        </li>
+                        <li class="flex items-center text-gray-700 text-sm">
+                            <i class="fas fa-check text-growth-green mr-3 text-xs"></i> Digital Transformation
+                        </li>
+                    </ul>
+                </div>
 
-                <!-- Tax Section -->
-                <section id="tax" class="scroll-mt-24">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
-                            <i class="fas fa-file-invoice-dollar text-growth-green text-xl"></i>
-                        </div>
-                        <h2 class="font-serif text-3xl font-bold text-gray-900">Tax Services</h2>
-                    </div>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Our tax professionals help you navigate the complex landscape of tax laws and regulations. We focus on minimizing your tax liability while ensuring full compliance.
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 class="font-bold text-oxford-blue mb-2">Corporate Filing</h4>
-                            <p class="text-sm text-gray-600">Accurate and timely preparation of federal, state, and local tax returns.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 class="font-bold text-oxford-blue mb-2">International Tax Law</h4>
-                            <p class="text-sm text-gray-600">Guidance on cross-border transactions and transfer pricing.</p>
-                        </div>
-                    </div>
-                    <!-- FAQ Accordion -->
-                    <div class="space-y-4">
-                        <details class="group bg-white rounded-lg border border-gray-200">
-                            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4">
-                                <span>Do you handle IRS audits?</span>
-                                <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-gray-400"></i></span>
-                            </summary>
-                            <div class="text-gray-600 mt-3 group-open:animate-fadeIn p-4 pt-0">
-                                Yes, we provide full representation before tax authorities for audits and disputes.
-                            </div>
-                        </details>
-                    </div>
-                </section>
-
-                <hr class="border-gray-200">
-
-                <!-- Advisory Section -->
-                <section id="advisory" class="scroll-mt-24">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                            <i class="fas fa-chart-line text-purple-600 text-xl"></i>
-                        </div>
-                        <h2 class="font-serif text-3xl font-bold text-gray-900">Advisory</h2>
-                    </div>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Beyond the numbers, we offer strategic advice to help your business grow, manage risk, and improve performance.
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 class="font-bold text-oxford-blue mb-2">Cash Flow Optimization</h4>
-                            <p class="text-sm text-gray-600">Strategies to improve liquidity and working capital management.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 class="font-bold text-oxford-blue mb-2">Business Valuation</h4>
-                            <p class="text-sm text-gray-600">Independent valuation services for mergers, acquisitions, and reporting.</p>
-                        </div>
-                    </div>
-                </section>
-
-            </main>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in-up">
+                <span class="text-growth-green font-bold tracking-wider uppercase text-sm">Our Process</span>
+                <h2 class="font-serif text-3xl font-bold text-oxford-blue mt-2">How We Work</h2>
+            </div>
+            
+            <div class="relative">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gray-200 z-0"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                    <!-- Step 1 -->
+                    <div class="text-center group animate-fade-in-up delay-100">
+                        <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6 border-4 border-gray-50 shadow-lg group-hover:border-oxford-blue transition-colors duration-300 relative">
+                            <span class="text-2xl font-bold text-gray-300 group-hover:text-oxford-blue transition-colors">01</span>
+                        </div>
+                        <h4 class="font-bold text-xl text-gray-900 mb-3">Discovery</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed px-4">We dive deep into your financials to understand your unique challenges and goals.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="text-center group animate-fade-in-up delay-200">
+                        <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6 border-4 border-gray-50 shadow-lg group-hover:border-growth-green transition-colors duration-300 relative">
+                            <span class="text-2xl font-bold text-gray-300 group-hover:text-growth-green transition-colors">02</span>
+                        </div>
+                        <h4 class="font-bold text-xl text-gray-900 mb-3">Strategy</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed px-4">We develop a comprehensive roadmap tailored to maximize your financial efficiency.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="text-center group animate-fade-in-up delay-300">
+                        <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6 border-4 border-gray-50 shadow-lg group-hover:border-oxford-blue transition-colors duration-300 relative">
+                            <span class="text-2xl font-bold text-gray-300 group-hover:text-oxford-blue transition-colors">03</span>
+                        </div>
+                        <h4 class="font-bold text-xl text-gray-900 mb-3">Execution</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed px-4">Our team implements the solutions with precision, ensuring full regulatory compliance.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="text-center group animate-fade-in-up delay-300">
+                        <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6 border-4 border-gray-50 shadow-lg group-hover:border-growth-green transition-colors duration-300 relative">
+                            <span class="text-2xl font-bold text-gray-300 group-hover:text-growth-green transition-colors">04</span>
+                        </div>
+                        <h4 class="font-bold text-xl text-gray-900 mb-3">Launch</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed px-4">We deliver the final reports and set up systems for ongoing monitoring and success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-oxford-blue relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h2 class="font-serif text-4xl font-bold text-white mb-6 animate-fade-in-up">Ready to start?</h2>
+            <p class="text-blue-100 text-lg mb-10 animate-fade-in-up delay-100">Take the first step towards financial clarity and confidence. Schedule your consultation today.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up delay-200">
+                <a href="contact.html" class="px-8 py-4 bg-growth-green text-white font-bold rounded-lg hover:bg-emerald-600 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    Get in Touch
+                </a>
+                <a href="pricing.html" class="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-oxford-blue transition">
+                    View Pricing
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer (Same as index.html) -->
     <footer class="bg-gray-900 text-white py-12 mt-12">

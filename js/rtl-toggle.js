@@ -1,11 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const rtlToggleBtn = document.getElementById('rtl-toggle');
+    // Select all toggle buttons (desktop and mobile)
+    const rtlToggleBtns = document.querySelectorAll('#rtl-toggle, #mobile-rtl-toggle');
     const htmlElement = document.documentElement;
     const bodyElement = document.body;
-    const navbarItems = document.querySelectorAll('.nav-item'); // Assuming nav items have this class
 
-    if (rtlToggleBtn) {
-        rtlToggleBtn.addEventListener('click', (e) => {
+    // Load saved preference
+    const savedDir = localStorage.getItem('site-direction');
+    if (savedDir) {
+        htmlElement.setAttribute('dir', savedDir);
+    }
+
+    rtlToggleBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
             
             // Start Animation
@@ -16,17 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const currentDir = htmlElement.getAttribute('dir');
                 const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
                 htmlElement.setAttribute('dir', newDir);
-
-                // Reorder Navbar Items (Optional if using flex-row-reverse, but per PRD requirements)
-                // The PRD asks to physically reorder using order classes. 
-                // However, simply switching dir="rtl" with Tailwind's logical properties is usually enough.
-                // I will stick to the PRD's request to "physically reorder" if needed, 
-                // but for now, I'll rely on the `dir` attribute and Tailwind's RTL support 
-                // which is cleaner. If specific reordering is needed, I'll add it here.
                 
+                // Save preference
+                localStorage.setItem('site-direction', newDir);
+
                 // End Animation
                 bodyElement.classList.remove('page-turning');
             }, 500); // Match CSS transition duration
         });
-    }
+    });
 });

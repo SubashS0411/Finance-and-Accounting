@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apex Financial - Admin Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script>
@@ -17,7 +22,7 @@
                     },
                     fontFamily: {
                         serif: ['Merriweather', 'serif'],
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Cairo', 'Inter', 'sans-serif'],
                     }
                 }
             }
@@ -26,13 +31,18 @@
 </head>
 <body class="font-sans text-gray-800 bg-gray-100">
 
-    <div class="flex h-screen overflow-hidden">
+    <div class="flex h-screen overflow-hidden relative">
         
         <!-- Sidebar -->
-        <aside class="w-64 bg-gray-900 text-white hidden md:flex flex-col">
-            <div class="p-6 flex items-center gap-2 border-b border-gray-800">
-                <i class="fas fa-chart-line text-growth-green text-xl"></i>
-                <span class="font-serif text-lg font-bold">Apex Admin</span>
+        <aside id="dashboard-sidebar" class="w-64 bg-gray-900 text-white absolute inset-y-0 left-0 rtl:right-0 rtl:left-auto transform -translate-x-full rtl:translate-x-full md:relative md:translate-x-0 transition-transform duration-300 ease-in-out z-30 flex flex-col">
+            <div class="p-6 flex items-center justify-between border-b border-gray-800">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-chart-line text-growth-green text-xl"></i>
+                    <span class="font-serif text-lg font-bold">Apex Admin</span>
+                </div>
+                <button id="close-dashboard-menu" class="md:hidden text-white hover:text-growth-green">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
             <nav class="flex-1 p-4 space-y-2">
                 <a href="#" class="flex items-center gap-3 px-4 py-3 bg-gray-800 rounded-lg text-white">
@@ -61,8 +71,16 @@
             <!-- Topbar -->
             <header class="bg-white shadow-sm z-10">
                 <div class="flex items-center justify-between px-6 py-4">
-                    <h1 class="text-2xl font-serif font-bold text-gray-800">Practice Management</h1>
                     <div class="flex items-center gap-4">
+                        <button id="dashboard-mobile-menu-btn" class="md:hidden text-gray-600 hover:text-oxford-blue">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                        <h1 class="text-2xl font-serif font-bold text-gray-800">Practice Management</h1>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <button id="rtl-toggle" class="text-gray-500 hover:text-oxford-blue transition" title="Toggle RTL">
+                            <i class="ph ph-globe text-xl"></i>
+                        </button>
                         <button class="p-2 text-gray-400 hover:text-gray-600 relative">
                             <i class="fas fa-bell"></i>
                             <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
@@ -105,6 +123,37 @@
                     </div>
                 </div>
 
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                    
+                    <!-- Revenue Chart -->
+                    <div class="lg:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="font-bold text-gray-900">Revenue Overview</h3>
+                            <div class="flex gap-2">
+                                <button class="px-3 py-1 text-xs font-medium bg-oxford-blue text-white rounded">Monthly</button>
+                                <button class="px-3 py-1 text-xs font-medium text-gray-500 hover:bg-gray-100 rounded">Weekly</button>
+                            </div>
+                        </div>
+                        <div class="h-64">
+                            <canvas id="adminRevenueChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Client Growth Chart -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                        <h3 class="font-bold text-gray-900 mb-6">Client Acquisition</h3>
+                        <div class="h-48">
+                            <canvas id="adminClientChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <p class="text-sm text-gray-500">Target: 150 Clients</p>
+                            <div class="w-full bg-gray-100 rounded-full h-2 mt-2">
+                                <div class="bg-growth-green h-2 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     
                     <!-- Pending Returns Table -->
@@ -139,59 +188,103 @@
                                     <tr class="hover:bg-gray-50">
                                         <td class="px-6 py-4 font-medium text-gray-900">Wayne Enterprises</td>
                                         <td class="px-6 py-4">Oct 22</td>
-                                        <td class="px-6 py-4"><span class="px-2 py-1 bg-gray-100 text-gray-800 rounded-full text-xs font-medium">Waiting for Docs</span></td>
-                                        <td class="px-6 py-4"><button class="text-oxford-blue hover:text-blue-800 font-medium">Nudge</button></td>
-                                    </tr>
-                                    <tr class="hover:bg-gray-50">
-                                        <td class="px-6 py-4 font-medium text-gray-900">Cyberdyne Systems</td>
-                                        <td class="px-6 py-4">Oct 25</td>
-                                        <td class="px-6 py-4"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Filed</span></td>
-                                        <td class="px-6 py-4"><button class="text-oxford-blue hover:text-blue-800 font-medium">Details</button></td>
+                                        <td class="px-6 py-4"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Ready</span></td>
+                                        <td class="px-6 py-4"><button class="text-oxford-blue hover:text-blue-800 font-medium">File</button></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
 
-                    <!-- Notifications -->
+                    <!-- Team Activity -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                        <h3 class="font-bold text-gray-900 mb-4">Recent Activity</h3>
-                        <div class="space-y-6">
-                            <div class="flex gap-3">
-                                <div class="mt-1">
-                                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-                                </div>
+                        <h3 class="font-bold text-gray-900 mb-4">Team Activity</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-8 h-8 rounded-full border border-gray-200">
                                 <div>
-                                    <p class="text-sm text-gray-800"><span class="font-bold">Acme Corp</span> uploaded a document.</p>
-                                    <p class="text-xs text-gray-500 mt-1">Q3_Financials.pdf • 2 mins ago</p>
+                                    <p class="text-sm text-gray-900"><span class="font-bold">Sarah J.</span> uploaded <span class="font-medium">Q3 Audit</span></p>
+                                    <p class="text-xs text-gray-500">2 mins ago</p>
                                 </div>
                             </div>
-                            <div class="flex gap-3">
-                                <div class="mt-1">
-                                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-                                </div>
+                            <div class="flex items-start gap-3">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-8 h-8 rounded-full border border-gray-200">
                                 <div>
-                                    <p class="text-sm text-gray-800">Payment received from <span class="font-bold">Stark Ind</span>.</p>
-                                    <p class="text-xs text-gray-500 mt-1">Invoice #4492 • 1 hour ago</p>
+                                    <p class="text-sm text-gray-900"><span class="font-bold">Mike R.</span> completed <span class="font-medium">Tax Review</span></p>
+                                    <p class="text-xs text-gray-500">15 mins ago</p>
                                 </div>
                             </div>
-                            <div class="flex gap-3">
-                                <div class="mt-1">
-                                    <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                                </div>
+                            <div class="flex items-start gap-3">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-8 h-8 rounded-full border border-gray-200">
                                 <div>
-                                    <p class="text-sm text-gray-800">New proposal request from <span class="font-bold">Massive Dynamic</span>.</p>
-                                    <p class="text-xs text-gray-500 mt-1">Via Website • 3 hours ago</p>
+                                    <p class="text-sm text-gray-900"><span class="font-bold">Elena D.</span> added new client <span class="font-medium">TechFlow</span></p>
+                                    <p class="text-xs text-gray-500">1 hour ago</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </main>
         </div>
     </div>
 
+    <script>
+        // Initialize Charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Revenue Chart
+            const ctx1 = document.getElementById('adminRevenueChart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Billable Hours',
+                        data: [12, 19, 15, 17, 14, 8, 5],
+                        backgroundColor: '#1e3a8a',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+
+            // Client Growth Chart
+            const ctx2 = document.getElementById('adminClientChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['W1', 'W2', 'W3', 'W4'],
+                    datasets: [{
+                        label: 'New Clients',
+                        data: [2, 4, 3, 5],
+                        borderColor: '#10b981',
+                        tension: 0.4,
+                        fill: true,
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        });
+    </script>
     <script src="js/main.js"></script>
+    <script src="js/rtl-toggle.js"></script>
 </body>
 </html>

@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apex Financial - 404 Error</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script>
@@ -17,14 +21,17 @@
                     },
                     fontFamily: {
                         serif: ['Merriweather', 'serif'],
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Cairo', 'Inter', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="font-sans text-gray-800 bg-gray-50 h-screen flex flex-col items-center justify-center text-center px-4">
+<body class="font-sans text-gray-800 bg-gray-50 h-screen flex flex-col items-center justify-center text-center px-4 relative">
+    <button id="rtl-toggle" class="absolute top-6 right-6 text-gray-500 hover:text-oxford-blue transition" title="Toggle RTL">
+        <i class="ph ph-globe text-2xl"></i>
+    </button>
 
     <div class="mb-8">
         <i class="fas fa-file-invoice-dollar text-9xl text-gray-200"></i>
@@ -40,5 +47,6 @@
         Return to Solvency (Home)
     </a>
 
+    <script src="js/rtl-toggle.js"></script>
 </body>
 </html>

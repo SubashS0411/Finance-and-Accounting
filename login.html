@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apex Financial - Client Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script>
@@ -17,7 +21,7 @@
                     },
                     fontFamily: {
                         serif: ['Merriweather', 'serif'],
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Cairo', 'Inter', 'sans-serif'],
                     },
                     backgroundImage: {
                         'guilloche': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3a8a' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
@@ -30,7 +34,10 @@
 <body class="font-sans text-gray-800 bg-gray-50 bg-guilloche h-screen flex items-center justify-center">
 
     <div class="w-full max-w-md bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-200">
-        <div class="bg-oxford-blue p-8 text-center">
+        <div class="bg-oxford-blue p-8 text-center relative">
+            <button id="rtl-toggle" class="absolute top-4 right-4 text-blue-200 hover:text-white transition" title="Toggle RTL">
+                <i class="ph ph-globe text-xl"></i>
+            </button>
             <a href="index.html" class="inline-flex items-center gap-2 text-white mb-4">
                 <i class="fas fa-chart-line text-2xl"></i>
                 <span class="font-serif text-xl font-bold">Apex Financial</span>
@@ -94,5 +101,6 @@
         </div>
     </div>
 
+    <script src="js/rtl-toggle.js"></script>
 </body>
 </html>

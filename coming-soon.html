@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apex Financial - Coming Soon</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script>
@@ -17,7 +21,7 @@
                     },
                     fontFamily: {
                         serif: ['Merriweather', 'serif'],
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Cairo', 'Inter', 'sans-serif'],
                     }
                 }
             }
@@ -25,6 +29,9 @@
     </script>
 </head>
 <body class="font-sans text-white bg-oxford-blue h-screen flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
+    <button id="rtl-toggle" class="absolute top-6 right-6 text-blue-200 hover:text-white transition z-50" title="Toggle RTL">
+        <i class="ph ph-globe text-2xl"></i>
+    </button>
 
     <!-- Background Elements -->
     <div class="absolute inset-0 opacity-10">
@@ -101,5 +108,6 @@
             }
         }, 1000);
     </script>
+    <script src="js/rtl-toggle.js"></script>
 </body>
 </html>
