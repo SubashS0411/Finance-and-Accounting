@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Financial - Coming Soon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'oxford-blue': '#1e3a8a',
+                        'growth-green': '#10b981',
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-white bg-oxford-blue h-screen flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
+
+    <!-- Background Elements -->
+    <div class="absolute inset-0 opacity-10">
+        <i class="fas fa-chart-pie absolute top-10 left-10 text-9xl"></i>
+        <i class="fas fa-calculator absolute bottom-10 right-10 text-9xl"></i>
+        <i class="fas fa-coins absolute top-1/2 left-1/4 text-6xl"></i>
+    </div>
+
+    <div class="relative z-10 max-w-2xl mx-auto">
+        <div class="mb-8">
+            <i class="fas fa-hourglass-half text-6xl text-growth-green animate-pulse"></i>
+        </div>
+        
+        <h1 class="font-serif text-4xl md:text-6xl font-bold mb-6">Tax Season is Coming</h1>
+        <p class="text-xl text-blue-200 mb-12">Our new portal features are being audited for perfection.</p>
+
+        <!-- Countdown -->
+        <div class="grid grid-cols-4 gap-4 md:gap-8 mb-12">
+            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <div id="days" class="text-3xl md:text-5xl font-bold text-white">00</div>
+                <div class="text-xs md:text-sm text-blue-200 uppercase tracking-wider mt-2">Days</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <div id="hours" class="text-3xl md:text-5xl font-bold text-white">00</div>
+                <div class="text-xs md:text-sm text-blue-200 uppercase tracking-wider mt-2">Hours</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <div id="minutes" class="text-3xl md:text-5xl font-bold text-white">00</div>
+                <div class="text-xs md:text-sm text-blue-200 uppercase tracking-wider mt-2">Minutes</div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <div id="seconds" class="text-3xl md:text-5xl font-bold text-white">00</div>
+                <div class="text-xs md:text-sm text-blue-200 uppercase tracking-wider mt-2">Seconds</div>
+            </div>
+        </div>
+
+        <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <input type="email" placeholder="Enter your email for updates" class="flex-1 px-4 py-3 rounded text-gray-900 focus:outline-none focus:ring-2 focus:ring-growth-green">
+            <button type="submit" class="bg-growth-green text-white font-bold px-6 py-3 rounded hover:bg-emerald-600 transition">Notify Me</button>
+        </form>
+        
+        <div class="mt-12">
+            <a href="index.html" class="text-blue-300 hover:text-white transition underline">Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Set the date we're counting down to (Next April 15th)
+        const now = new Date();
+        let targetYear = now.getFullYear();
+        if (now.getMonth() > 3 || (now.getMonth() === 3 && now.getDate() > 15)) {
+            targetYear += 1;
+        }
+        const countDownDate = new Date(`April 15, ${targetYear} 00:00:00`).getTime();
+
+        // Update the count down every 1 second
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".grid").innerHTML = "<div class='col-span-4 text-3xl font-bold'>Tax Day is Here!</div>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

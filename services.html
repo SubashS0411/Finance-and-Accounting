@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Financial - Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'oxford-blue': '#1e3a8a',
+                        'growth-green': '#10b981',
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <i class="fas fa-chart-line text-oxford-blue text-3xl"></i>
+                        <span class="font-serif text-2xl font-bold text-oxford-blue">Apex Financial</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
+                    <!-- Home Dropdown -->
+                    <div class="relative group">
+                        <button class="font-serif text-gray-700 hover:text-oxford-blue transition flex items-center gap-1 py-2">
+                            Home <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 rtl:right-0 rtl:left-auto mt-0 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 z-50 border border-gray-100 top-full">
+                            <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-oxford-blue text-left rtl:text-right">Home Version 1</a>
+                            <a href="index2.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-oxford-blue text-left rtl:text-right">Home Version 2</a>
+                        </div>
+                    </div>
+                    
+                    <a href="services.html" class="font-serif text-oxford-blue font-bold transition">Services</a>
+                    <a href="pricing.html" class="font-serif text-gray-700 hover:text-oxford-blue transition">Pricing</a>
+                    <a href="about.html" class="font-serif text-gray-700 hover:text-oxford-blue transition">About</a>
+                </div>
+
+                <!-- Actions -->
+                <div class="hidden md:flex items-center space-x-4 rtl:space-x-reverse">
+                    <a href="user-dashboard.html" class="text-oxford-blue border border-oxford-blue px-3 py-1.5 rounded hover:bg-oxford-blue hover:text-white transition text-sm font-medium">Dashboard</a>
+                    <a href="login.html" class="text-gray-600 hover:text-oxford-blue font-medium">Client Login</a>
+                    <a href="contact.html" class="bg-oxford-blue text-white px-4 py-2 rounded hover:bg-blue-800 transition">Book Consult</a>
+                    <button id="rtl-toggle" class="text-gray-500 hover:text-oxford-blue transition" title="Toggle RTL">
+                        <i class="fas fa-globe text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-oxford-blue focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 rtl:left-0 rtl:right-auto w-64 bg-white shadow-xl transform translate-x-full rtl:-translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
+            <div class="p-6">
+                <div class="flex justify-end rtl:justify-start mb-8">
+                    <button id="close-menu-btn" class="text-gray-500 hover:text-gray-800">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-4">
+                    <!-- Mobile Home Dropdown -->
+                    <div class="space-y-2">
+                        <span class="font-serif text-lg text-gray-800 font-semibold block">Home</span>
+                        <div class="pl-4 rtl:pr-4 rtl:pl-0 flex flex-col space-y-2 border-l-2 rtl:border-r-2 rtl:border-l-0 border-gray-100">
+                            <a href="index.html" class="text-gray-600 hover:text-oxford-blue">Home Version 1</a>
+                            <a href="index2.html" class="text-gray-600 hover:text-oxford-blue">Home Version 2</a>
+                        </div>
+                    </div>
+
+                    <a href="services.html" class="font-serif text-lg text-gray-800 hover:text-oxford-blue">Services</a>
+                    <a href="pricing.html" class="font-serif text-lg text-gray-800 hover:text-oxford-blue">Pricing</a>
+                    <a href="about.html" class="font-serif text-lg text-gray-800 hover:text-oxford-blue">About</a>
+                    <hr class="border-gray-200">
+                    <a href="user-dashboard.html" class="text-lg text-oxford-blue font-medium">Dashboard</a>
+                    <a href="login.html" class="text-lg text-gray-600 hover:text-oxford-blue">Client Login</a>
+                    <a href="contact.html" class="bg-oxford-blue text-white px-4 py-2 rounded text-center hover:bg-blue-800">Book Consult</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-oxford-blue text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-serif text-4xl font-bold mb-4">Our Services</h1>
+            <p class="text-blue-200 text-lg max-w-2xl mx-auto">Expert financial guidance tailored to your business needs.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex flex-col md:flex-row gap-12">
+            
+            <!-- Sticky Sidebar -->
+            <aside class="w-full md:w-1/4">
+                <div class="sticky top-24 bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                    <h3 class="font-serif text-lg font-bold text-oxford-blue mb-4">Navigate</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#audit" class="block text-gray-600 hover:text-growth-green hover:pl-2 transition-all">Audit & Assurance</a></li>
+                        <li><a href="#tax" class="block text-gray-600 hover:text-growth-green hover:pl-2 transition-all">Tax Services</a></li>
+                        <li><a href="#advisory" class="block text-gray-600 hover:text-growth-green hover:pl-2 transition-all">Advisory</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="w-full md:w-3/4 space-y-16">
+                
+                <!-- Audit Section -->
+                <section id="audit" class="scroll-mt-24">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-search text-oxford-blue text-xl"></i>
+                        </div>
+                        <h2 class="font-serif text-3xl font-bold text-gray-900">Audit & Assurance</h2>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        We provide independent audit services that enhance the reliability of information used by investors, creditors, and other stakeholders. Our approach is designed to provide reasonable assurance that financial statements are free from material misstatement.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-oxford-blue mb-2">Sarbanes-Oxley Compliance</h4>
+                            <p class="text-sm text-gray-600">Comprehensive testing of internal controls over financial reporting.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-oxford-blue mb-2">Internal Controls</h4>
+                            <p class="text-sm text-gray-600">Evaluation and improvement of your organization's internal control systems.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Accordion -->
+                    <div class="space-y-4">
+                        <details class="group bg-white rounded-lg border border-gray-200">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4">
+                                <span>What is the typical duration of an audit?</span>
+                                <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-gray-400"></i></span>
+                            </summary>
+                            <div class="text-gray-600 mt-3 group-open:animate-fadeIn p-4 pt-0">
+                                The duration varies by company size, but typically ranges from 2 to 6 weeks of fieldwork.
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <hr class="border-gray-200">
+
+                <!-- Tax Section -->
+                <section id="tax" class="scroll-mt-24">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-file-invoice-dollar text-growth-green text-xl"></i>
+                        </div>
+                        <h2 class="font-serif text-3xl font-bold text-gray-900">Tax Services</h2>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Our tax professionals help you navigate the complex landscape of tax laws and regulations. We focus on minimizing your tax liability while ensuring full compliance.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-oxford-blue mb-2">Corporate Filing</h4>
+                            <p class="text-sm text-gray-600">Accurate and timely preparation of federal, state, and local tax returns.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-oxford-blue mb-2">International Tax Law</h4>
+                            <p class="text-sm text-gray-600">Guidance on cross-border transactions and transfer pricing.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Accordion -->
+                    <div class="space-y-4">
+                        <details class="group bg-white rounded-lg border border-gray-200">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4">
+                                <span>Do you handle IRS audits?</span>
+                                <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down text-gray-400"></i></span>
+                            </summary>
+                            <div class="text-gray-600 mt-3 group-open:animate-fadeIn p-4 pt-0">
+                                Yes, we provide full representation before tax authorities for audits and disputes.
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <hr class="border-gray-200">
+
+                <!-- Advisory Section -->
+                <section id="advisory" class="scroll-mt-24">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-chart-line text-purple-600 text-xl"></i>
+                        </div>
+                        <h2 class="font-serif text-3xl font-bold text-gray-900">Advisory</h2>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Beyond the numbers, we offer strategic advice to help your business grow, manage risk, and improve performance.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-oxford-blue mb-2">Cash Flow Optimization</h4>
+                            <p class="text-sm text-gray-600">Strategies to improve liquidity and working capital management.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-200">
+                            <h4 class="font-bold text-oxford-blue mb-2">Business Valuation</h4>
+                            <p class="text-sm text-gray-600">Independent valuation services for mergers, acquisitions, and reporting.</p>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="bg-gray-900 text-white py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-chart-line text-growth-green text-2xl"></i>
+                        <span class="font-serif text-xl font-bold">Apex Financial</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Providing world-class financial services since 1985.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white">Audit & Assurance</a></li>
+                        <li><a href="#" class="hover:text-white">Tax Services</a></li>
+                        <li><a href="#" class="hover:text-white">Advisory</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="about.html" class="hover:text-white">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Careers</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2025 Apex Financial. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/rtl-toggle.js"></script>
+</body>
+</html>

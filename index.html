@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Financial - Precision in Numbers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'oxford-blue': '#1e3a8a',
+                        'growth-green': '#10b981',
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <i class="fas fa-chart-line text-oxford-blue text-3xl"></i>
+                        <span class="font-serif text-2xl font-bold text-oxford-blue">Apex Financial</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
+                    <!-- Home Dropdown -->
+                    <div class="relative group">
+                        <button class="font-serif text-gray-700 hover:text-oxford-blue transition flex items-center gap-1 py-2">
+                            Home <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 rtl:right-0 rtl:left-auto mt-0 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 z-50 border border-gray-100 top-full">
+                            <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-oxford-blue text-left rtl:text-right">Home Version 1</a>
+                            <a href="index2.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-oxford-blue text-left rtl:text-right">Home Version 2</a>
+                        </div>
+                    </div>
+                    
+                    <a href="services.html" class="font-serif text-gray-700 hover:text-oxford-blue transition">Services</a>
+                    <a href="pricing.html" class="font-serif text-gray-700 hover:text-oxford-blue transition">Pricing</a>
+                    <a href="about.html" class="font-serif text-gray-700 hover:text-oxford-blue transition">About</a>
+                </div>
+
+                <!-- Actions -->
+                <div class="hidden md:flex items-center space-x-4 rtl:space-x-reverse">
+                    <a href="user-dashboard.html" class="text-oxford-blue border border-oxford-blue px-3 py-1.5 rounded hover:bg-oxford-blue hover:text-white transition text-sm font-medium">Dashboard</a>
+                    <a href="login.html" class="text-gray-600 hover:text-oxford-blue font-medium">Client Login</a>
+                    <a href="contact.html" class="bg-oxford-blue text-white px-4 py-2 rounded hover:bg-blue-800 transition">Book Consult</a>
+                    <button id="rtl-toggle" class="text-gray-500 hover:text-oxford-blue transition" title="Toggle RTL">
+                        <i class="fas fa-globe text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-oxford-blue focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 rtl:left-0 rtl:right-auto w-64 bg-white shadow-xl transform translate-x-full rtl:-translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
+            <div class="p-6">
+                <div class="flex justify-end rtl:justify-start mb-8">
+                    <button id="close-menu-btn" class="text-gray-500 hover:text-gray-800">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-4">
+                    <!-- Mobile Home Dropdown -->
+                    <div class="space-y-2">
+                        <span class="font-serif text-lg text-gray-800 font-semibold block">Home</span>
+                        <div class="pl-4 rtl:pr-4 rtl:pl-0 flex flex-col space-y-2 border-l-2 rtl:border-r-2 rtl:border-l-0 border-gray-100">
+                            <a href="index.html" class="text-gray-600 hover:text-oxford-blue">Home Version 1</a>
+                            <a href="index2.html" class="text-gray-600 hover:text-oxford-blue">Home Version 2</a>
+                        </div>
+                    </div>
+
+                    <a href="services.html" class="font-serif text-lg text-gray-800 hover:text-oxford-blue">Services</a>
+                    <a href="pricing.html" class="font-serif text-lg text-gray-800 hover:text-oxford-blue">Pricing</a>
+                    <a href="about.html" class="font-serif text-lg text-gray-800 hover:text-oxford-blue">About</a>
+                    <hr class="border-gray-200">
+                    <a href="user-dashboard.html" class="text-lg text-oxford-blue font-medium">Dashboard</a>
+                    <a href="login.html" class="text-lg text-gray-600 hover:text-oxford-blue">Client Login</a>
+                    <a href="contact.html" class="bg-oxford-blue text-white px-4 py-2 rounded text-center hover:bg-blue-800">Book Consult</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-oxford-blue h-[600px] flex items-center justify-center text-center text-white overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Skyscraper" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-oxford-blue/60"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4">
+            <h1 class="font-serif text-4xl md:text-6xl font-bold mb-6 leading-tight">Precision in Numbers.<br>Excellence in Strategy.</h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 font-light">Trusted by Fortune 500 companies for audit, tax, and advisory services.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="services.html" class="bg-growth-green text-white px-8 py-3 rounded font-semibold hover:bg-emerald-600 transition">Our Services</a>
+                <a href="contact.html" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded font-semibold hover:bg-white hover:text-oxford-blue transition">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trust Strip -->
+    <div class="bg-gray-100 border-b border-gray-200 py-4">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-600 font-medium uppercase tracking-wider text-sm">
+                <i class="fas fa-check-circle text-growth-green mr-2"></i> Audited 500+ Companies 
+                <span class="mx-4 text-gray-300">|</span> 
+                <i class="fas fa-chart-pie text-growth-green mr-2"></i> $10B+ Assets Managed
+            </p>
+        </div>
+    </div>
+
+    <!-- Service Trio -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl font-bold text-oxford-blue mb-4">Our Expertise</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Comprehensive financial solutions tailored for growth and compliance.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-gray-50 p-8 rounded-lg border border-gray-100 hover:shadow-lg transition group">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-oxford-blue transition">
+                        <i class="fas fa-file-invoice-dollar text-oxford-blue text-xl group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Tax Preparation</h3>
+                    <p class="text-gray-600 mb-4">Strategic tax planning and compliance for corporations and high-net-worth individuals.</p>
+                    <a href="services.html" class="text-oxford-blue font-semibold hover:text-growth-green">Learn more &rarr;</a>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-gray-50 p-8 rounded-lg border border-gray-100 hover:shadow-lg transition group">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-oxford-blue transition">
+                        <i class="fas fa-search-dollar text-oxford-blue text-xl group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Forensic Accounting</h3>
+                    <p class="text-gray-600 mb-4">Deep-dive financial investigations to uncover discrepancies and ensure integrity.</p>
+                    <a href="services.html" class="text-oxford-blue font-semibold hover:text-growth-green">Learn more &rarr;</a>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-gray-50 p-8 rounded-lg border border-gray-100 hover:shadow-lg transition group">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-oxford-blue transition">
+                        <i class="fas fa-handshake text-oxford-blue text-xl group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-3">Mergers & Acquisitions</h3>
+                    <p class="text-gray-600 mb-4">Expert valuation and due diligence to guide your most critical business decisions.</p>
+                    <a href="services.html" class="text-oxford-blue font-semibold hover:text-growth-green">Learn more &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tax Calculator -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+                <div class="bg-oxford-blue p-6 text-white text-center">
+                    <h3 class="font-serif text-2xl font-bold">Estimate Your Tax Savings</h3>
+                    <p class="text-blue-200 text-sm mt-2">See how much you could save with our strategic planning.</p>
+                </div>
+                <div class="p-8">
+                    <div class="mb-6">
+                        <label for="tax-income-input" class="block text-sm font-medium text-gray-700 mb-2">Annual Business Income ($)</label>
+                        <div class="relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="text-gray-500 sm:text-sm">$</span>
+                            </div>
+                            <input type="number" id="tax-income-input" class="focus:ring-oxford-blue focus:border-oxford-blue block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md py-3 border" placeholder="0.00">
+                        </div>
+                    </div>
+                    <button id="calculate-tax-btn" class="w-full bg-growth-green text-white font-bold py-3 px-4 rounded hover:bg-emerald-600 transition">Calculate Potential Savings</button>
+                    
+                    <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100 hidden text-center">
+                        <p class="text-sm text-gray-600">Estimated Potential Savings:</p>
+                        <p id="tax-savings-result" class="text-3xl font-bold text-oxford-blue mt-1">$0.00</p>
+                        <p class="text-xs text-gray-500 mt-2">*Disclaimer: This is a rough estimate. Contact us for a precise evaluation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-chart-line text-growth-green text-2xl"></i>
+                        <span class="font-serif text-xl font-bold">Apex Financial</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Providing world-class financial services since 1985.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white">Audit & Assurance</a></li>
+                        <li><a href="#" class="hover:text-white">Tax Services</a></li>
+                        <li><a href="#" class="hover:text-white">Advisory</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="about.html" class="hover:text-white">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Careers</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2025 Apex Financial. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/rtl-toggle.js"></script>
+</body>
+</html>

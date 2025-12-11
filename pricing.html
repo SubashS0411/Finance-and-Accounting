@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Financial - Pricing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'oxford-blue': '#1e3a8a',
+                        'growth-green': '#10b981',
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <i class="fas fa-chart-line text-oxford-blue text-3xl"></i>
+                        <span class="font-serif text-2xl font-bold text-oxford-blue">Apex Financial</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
+                    <!-- Home Dropdown -->
+                    <div class="relative group">
+                        <button class="font-serif text-gray-700 hover:text-oxford-blue transition flex items-center gap-1 py-2">
+                            Home <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 rtl:right-0 rtl:left-auto mt-0 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 z-50 border border-gray-100 top-full">
+                            <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-oxford-blue text-left rtl:text-right">Home Version 1</a>
+                            <a href="index2.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-oxford-blue text-left rtl:text-right">Home Version 2</a>
+                        </div>
+                    </div>
+                    
+                    <a href="services.html" class="font-serif text-gray-700 hover:text-oxford-blue transition">Services</a>
+                    <a href="pricing.html" class="font-serif text-oxford-blue font-bold transition">Pricing</a>
+                    <a href="about.html" class="font-serif text-gray-700 hover:text-oxford-blue transition">About</a>
+                </div>
+
+                <!-- Actions -->
+                <div class="hidden md:flex items-center space-x-4 rtl:space-x-reverse">
+                    <a href="user-dashboard.html" class="text-oxford-blue border border-oxford-blue px-3 py-1.5 rounded hover:bg-oxford-blue hover:text-white transition text-sm font-medium">Dashboard</a>
+                    <a href="login.html" class="text-gray-600 hover:text-oxford-blue font-medium">Client Login</a>
+                    <a href="contact.html" class="bg-oxford-blue text-white px-4 py-2 rounded hover:bg-blue-800 transition">Book Consult</a>
+                    <button id="rtl-toggle" class="text-gray-500 hover:text-oxford-blue transition" title="Toggle RTL">
+                        <i class="fas fa-globe text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-oxford-blue focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 rtl:left-0 rtl:right-auto w-64 bg-white shadow-xl transform translate-x-full rtl:-translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
+            <div class="p-6">
+                <div class="flex justify-end rtl:justify-start mb-8">
+                    <button id="close-menu-btn" class="text-gray-500 hover:text-gray-800">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-4">
+                    <!-- Mobile Home Dropdown -->
+                    <div class="space-y-2">
+                        <span class="font-serif text-lg text-gray-800 font-semibold block">Home</span>
+                        <div class="pl-4 rtl:pr-4 rtl:pl-0 flex flex-col space-y-2 border-l-2 rtl:border-r-2 rtl:border-l-0 border-gray-100">
+                            <a href="index.html" class="text-gray-600 hover:text-oxford-blue">Home Version 1</a>
+                            <a href="index2.html" class="text-gray-600 hover:text-oxford-blue">Home Version 2</a>
+                        </div>
+                    </div>
+
+                    <a href="services.html" class="font-serif text-lg text-gray-800 hover:text-oxford-blue">Services</a>
+                    <a href="pricing.html" class="font-serif text-lg text-gray-800 hover:text-oxford-blue">Pricing</a>
+                    <a href="about.html" class="font-serif text-lg text-gray-800 hover:text-oxford-blue">About</a>
+                    <hr class="border-gray-200">
+                    <a href="user-dashboard.html" class="text-lg text-oxford-blue font-medium">Dashboard</a>
+                    <a href="login.html" class="text-lg text-gray-600 hover:text-oxford-blue">Client Login</a>
+                    <a href="contact.html" class="bg-oxford-blue text-white px-4 py-2 rounded text-center hover:bg-blue-800">Book Consult</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-oxford-blue text-white py-16 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <h1 class="font-serif text-4xl font-bold mb-4">Transparent Retainers</h1>
+            <p class="text-blue-200 text-lg">Choose the plan that fits your business stage.</p>
+        </div>
+    </header>
+
+    <!-- Pricing Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Toggle -->
+            <div class="flex justify-center items-center mb-12">
+                <span class="text-gray-600 font-medium mr-4">Monthly</span>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="pricing-toggle" class="sr-only peer">
+                    <div class="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-oxford-blue"></div>
+                </label>
+                <span class="text-gray-900 font-bold ml-4">Quarterly</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Startup Plan -->
+                <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl font-bold text-oxford-blue mb-2">Startups</h3>
+                        <p class="text-gray-500 text-sm mb-6">Essential bookkeeping for new ventures.</p>
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-4xl font-bold text-gray-900">$</span>
+                            <span class="text-4xl font-bold text-gray-900 price-amount" data-base-price="500">500</span>
+                            <span class="text-gray-500 ml-2 price-period">/month</span>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-growth-green mr-3"></i> Monthly Bookkeeping
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-growth-green mr-3"></i> Quarterly Tax Estimates
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-growth-green mr-3"></i> Xero/QuickBooks Setup
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="block w-full bg-gray-100 text-oxford-blue font-bold py-3 rounded-lg text-center hover:bg-gray-200 transition">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- SME Plan -->
+                <div class="bg-white rounded-xl shadow-xl border-2 border-oxford-blue overflow-hidden transform scale-105 z-10">
+                    <div class="bg-oxford-blue text-white text-center py-2 text-sm font-bold uppercase tracking-wider">Most Popular</div>
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl font-bold text-oxford-blue mb-2">SME</h3>
+                        <p class="text-gray-500 text-sm mb-6">Full-service compliance for growing teams.</p>
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-4xl font-bold text-gray-900">$</span>
+                            <span class="text-4xl font-bold text-gray-900 price-amount" data-base-price="1500">1,500</span>
+                            <span class="text-gray-500 ml-2 price-period">/month</span>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-growth-green mr-3"></i> Everything in Startup
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-growth-green mr-3"></i> Payroll Processing (up to 50)
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-growth-green mr-3"></i> Annual Tax Filing
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-growth-green mr-3"></i> Dedicated Account Manager
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="block w-full bg-growth-green text-white font-bold py-3 rounded-lg text-center hover:bg-emerald-600 transition">Choose Plan</a>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl font-bold text-oxford-blue mb-2">Enterprise</h3>
+                        <p class="text-gray-500 text-sm mb-6">Strategic CFO services for large orgs.</p>
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-4xl font-bold text-gray-900">Custom</span>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-growth-green mr-3"></i> Virtual CFO
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-growth-green mr-3"></i> M&A Advisory
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-growth-green mr-3"></i> International Tax Strategy
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check text-growth-green mr-3"></i> Board Meeting Attendance
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="block w-full bg-gray-100 text-oxford-blue font-bold py-3 rounded-lg text-center hover:bg-gray-200 transition">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-chart-line text-growth-green text-2xl"></i>
+                        <span class="font-serif text-xl font-bold">Apex Financial</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Providing world-class financial services since 1985.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white">Audit & Assurance</a></li>
+                        <li><a href="#" class="hover:text-white">Tax Services</a></li>
+                        <li><a href="#" class="hover:text-white">Advisory</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="about.html" class="hover:text-white">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Careers</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2025 Apex Financial. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/rtl-toggle.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Financial - 404 Error</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'oxford-blue': '#1e3a8a',
+                        'growth-green': '#10b981',
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 h-screen flex flex-col items-center justify-center text-center px-4">
+
+    <div class="mb-8">
+        <i class="fas fa-file-invoice-dollar text-9xl text-gray-200"></i>
+    </div>
+    
+    <h1 class="font-serif text-6xl font-bold text-oxford-blue mb-4">404</h1>
+    <h2 class="text-2xl font-bold text-gray-700 mb-4">Balance Sheet Does Not Balance.</h2>
+    <p class="text-gray-500 max-w-md mx-auto mb-8">
+        We've audited our servers, but we can't find the page you're looking for. It seems to be a liability we didn't account for.
+    </p>
+
+    <a href="index.html" class="bg-oxford-blue text-white px-8 py-3 rounded font-semibold hover:bg-blue-800 transition">
+        Return to Solvency (Home)
+    </a>
+
+</body>
+</html>

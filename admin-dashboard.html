@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Financial - Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'oxford-blue': '#1e3a8a',
+                        'growth-green': '#10b981',
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800 bg-gray-100">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-900 text-white hidden md:flex flex-col">
+            <div class="p-6 flex items-center gap-2 border-b border-gray-800">
+                <i class="fas fa-chart-line text-growth-green text-xl"></i>
+                <span class="font-serif text-lg font-bold">Apex Admin</span>
+            </div>
+            <nav class="flex-1 p-4 space-y-2">
+                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-gray-800 rounded-lg text-white">
+                    <i class="fas fa-tachometer-alt w-5"></i> Overview
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 hover:text-white rounded-lg transition">
+                    <i class="fas fa-users w-5"></i> Clients
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 hover:text-white rounded-lg transition">
+                    <i class="fas fa-file-invoice w-5"></i> Returns
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-800 hover:text-white rounded-lg transition">
+                    <i class="fas fa-clock w-5"></i> Timesheets
+                </a>
+            </nav>
+            <div class="p-4 border-t border-gray-800">
+                <a href="index.html" class="flex items-center gap-3 px-4 py-2 text-gray-400 hover:text-white transition">
+                    <i class="fas fa-sign-out-alt w-5"></i> Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            
+            <!-- Topbar -->
+            <header class="bg-white shadow-sm z-10">
+                <div class="flex items-center justify-between px-6 py-4">
+                    <h1 class="text-2xl font-serif font-bold text-gray-800">Practice Management</h1>
+                    <div class="flex items-center gap-4">
+                        <button class="p-2 text-gray-400 hover:text-gray-600 relative">
+                            <i class="fas fa-bell"></i>
+                            <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                        </button>
+                        <div class="w-10 h-10 bg-oxford-blue rounded-full flex items-center justify-center text-white font-bold">
+                            JS
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <main class="flex-1 overflow-y-auto p-6">
+                
+                <!-- Stats Row -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-gray-500 text-sm font-medium uppercase">Total Billable Hours</h3>
+                            <i class="fas fa-clock text-blue-500 bg-blue-50 p-2 rounded-lg"></i>
+                        </div>
+                        <p class="text-3xl font-bold text-gray-900">1,248 <span class="text-sm text-gray-400 font-normal">hrs</span></p>
+                        <p class="text-sm text-green-600 mt-2"><i class="fas fa-arrow-up"></i> 5% this week</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-gray-500 text-sm font-medium uppercase">Outstanding Invoices</h3>
+                            <i class="fas fa-file-invoice-dollar text-orange-500 bg-orange-50 p-2 rounded-lg"></i>
+                        </div>
+                        <p class="text-3xl font-bold text-gray-900">$45,200</p>
+                        <p class="text-sm text-red-500 mt-2">3 overdue > 30 days</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-gray-500 text-sm font-medium uppercase">Active Clients</h3>
+                            <i class="fas fa-users text-growth-green bg-emerald-50 p-2 rounded-lg"></i>
+                        </div>
+                        <p class="text-3xl font-bold text-gray-900">142</p>
+                        <p class="text-sm text-green-600 mt-2"><i class="fas fa-plus"></i> 4 new this month</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Pending Returns Table -->
+                    <div class="lg:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                        <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                            <h3 class="font-bold text-gray-900">Pending Returns</h3>
+                            <button class="text-sm text-oxford-blue font-medium hover:underline">View All</button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-sm text-gray-600">
+                                <thead class="bg-gray-50 text-gray-500 font-medium uppercase text-xs">
+                                    <tr>
+                                        <th class="px-6 py-3">Client Name</th>
+                                        <th class="px-6 py-3">Deadline</th>
+                                        <th class="px-6 py-3">Status</th>
+                                        <th class="px-6 py-3">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-100">
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gray-900">Acme Corp Inc.</td>
+                                        <td class="px-6 py-4 text-red-600 font-medium">Oct 15</td>
+                                        <td class="px-6 py-4"><span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-medium">Processing</span></td>
+                                        <td class="px-6 py-4"><button class="text-oxford-blue hover:text-blue-800 font-medium">Review</button></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gray-900">Stark Industries</td>
+                                        <td class="px-6 py-4">Oct 20</td>
+                                        <td class="px-6 py-4"><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Reviewing</span></td>
+                                        <td class="px-6 py-4"><button class="text-oxford-blue hover:text-blue-800 font-medium">Approve</button></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gray-900">Wayne Enterprises</td>
+                                        <td class="px-6 py-4">Oct 22</td>
+                                        <td class="px-6 py-4"><span class="px-2 py-1 bg-gray-100 text-gray-800 rounded-full text-xs font-medium">Waiting for Docs</span></td>
+                                        <td class="px-6 py-4"><button class="text-oxford-blue hover:text-blue-800 font-medium">Nudge</button></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gray-900">Cyberdyne Systems</td>
+                                        <td class="px-6 py-4">Oct 25</td>
+                                        <td class="px-6 py-4"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Filed</span></td>
+                                        <td class="px-6 py-4"><button class="text-oxford-blue hover:text-blue-800 font-medium">Details</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Notifications -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                        <h3 class="font-bold text-gray-900 mb-4">Recent Activity</h3>
+                        <div class="space-y-6">
+                            <div class="flex gap-3">
+                                <div class="mt-1">
+                                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-800"><span class="font-bold">Acme Corp</span> uploaded a document.</p>
+                                    <p class="text-xs text-gray-500 mt-1">Q3_Financials.pdf • 2 mins ago</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="mt-1">
+                                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-800">Payment received from <span class="font-bold">Stark Ind</span>.</p>
+                                    <p class="text-xs text-gray-500 mt-1">Invoice #4492 • 1 hour ago</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="mt-1">
+                                    <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-800">New proposal request from <span class="font-bold">Massive Dynamic</span>.</p>
+                                    <p class="text-xs text-gray-500 mt-1">Via Website • 3 hours ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
