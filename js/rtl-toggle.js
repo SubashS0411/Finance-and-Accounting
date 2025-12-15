@@ -8,6 +8,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedDir = localStorage.getItem('site-direction');
     if (savedDir) {
         htmlElement.setAttribute('dir', savedDir);
+        updateDashboardSidebar(savedDir);
+    }
+
+    function updateDashboardSidebar(direction) {
+        const dashboardSidebar = document.getElementById('dashboard-sidebar');
+        if (dashboardSidebar && window.innerWidth < 768) {
+            // Reset sidebar position when switching direction in mobile view
+            dashboardSidebar.classList.remove('translate-x-0', '-translate-x-full', 'translate-x-full');
+            if (direction === 'rtl') {
+                dashboardSidebar.classList.add('translate-x-full');
+            } else {
+                dashboardSidebar.classList.add('-translate-x-full');
+            }
+            // Also hide overlay if visible
+            const overlay = document.getElementById('dashboard-overlay');
+            if (overlay) {
+                overlay.classList.remove('is-active');
+                overlay.classList.add('hidden');
+            }
+        }
     }
 
     rtlToggleBtns.forEach(btn => {
@@ -25,6 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Save preference
                 localStorage.setItem('site-direction', newDir);
+
+                // Update dashboard sidebar if present
+                updateDashboardSidebar(newDir);
+
+                // Let other scripts (e.g., dashboard menu) react
+                window.dispatchEvent(new Event('directionchange'));
 
                 // End Animation
                 bodyElement.classList.remove('page-turning');

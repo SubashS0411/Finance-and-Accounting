@@ -10,11 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (mobileMenu.classList.contains('h-0')) {
                 mobileMenu.classList.remove('h-0');
                 mobileMenu.classList.add('h-screen');
+                mobileMenu.classList.add('is-open');
                 // Change icon to close
                 mobileMenuBtn.innerHTML = '<i class="fas fa-times text-2xl"></i>';
             } else {
                 mobileMenu.classList.remove('h-screen');
                 mobileMenu.classList.add('h-0');
+                mobileMenu.classList.remove('is-open');
                 // Change icon back to bars
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
             }
@@ -25,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('h-screen');
                 mobileMenu.classList.add('h-0');
+                mobileMenu.classList.remove('is-open');
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
             });
         });
@@ -91,23 +94,86 @@ document.addEventListener('DOMContentLoaded', () => {
     const dashboardMenuBtn = document.getElementById('dashboard-mobile-menu-btn');
     const dashboardSidebar = document.getElementById('dashboard-sidebar');
     const closeDashboardBtn = document.getElementById('close-dashboard-menu');
+    const dashboardOverlay = document.getElementById('dashboard-overlay');
 
-    if (dashboardMenuBtn && dashboardSidebar) {
-        dashboardMenuBtn.addEventListener('click', () => {
-            dashboardSidebar.classList.remove('-translate-x-full', 'rtl:translate-x-full');
+    function syncDashboardSidebarForViewport() {
+        if (!dashboardSidebar) return;
+
+        const isDesktop = window.innerWidth >= 768; // Tailwind md breakpoint
+        const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+
+        // Always show sidebar on desktop
+        if (isDesktop) {
+            dashboardSidebar.classList.remove('-translate-x-full', 'translate-x-full');
             dashboardSidebar.classList.add('translate-x-0');
-        });
+            if (dashboardOverlay) {
+                dashboardOverlay.classList.remove('is-active');
+                dashboardOverlay.classList.add('hidden');
+            }
+            return;
+        }
 
-        if (closeDashboardBtn) {
-            closeDashboardBtn.addEventListener('click', () => {
-                const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
-                dashboardSidebar.classList.remove('translate-x-0');
-                if (isRtl) {
-                    dashboardSidebar.classList.add('translate-x-full'); // In RTL, hidden is translate-x-full (right)
-                } else {
-                    dashboardSidebar.classList.add('-translate-x-full'); // In LTR, hidden is -translate-x-full (left)
-                }
-            });
+        // On mobile, keep it closed by default (unless opened)
+        if (!dashboardSidebar.classList.contains('translate-x-0')) {
+            dashboardSidebar.classList.remove('-translate-x-full', 'translate-x-full');
+            dashboardSidebar.classList.add(isRtl ? 'translate-x-full' : '-translate-x-full');
+            if (dashboardOverlay) {
+                dashboardOverlay.classList.remove('is-active');
+                dashboardOverlay.classList.add('hidden');
+            }
         }
     }
+
+    function openDashboardMenu() {
+        if (dashboardSidebar) {
+            dashboardSidebar.classList.remove('-translate-x-full', 'translate-x-full');
+            dashboardSidebar.classList.add('translate-x-0');
+            if (dashboardOverlay) {
+                dashboardOverlay.classList.remove('hidden');
+                requestAnimationFrame(() => dashboardOverlay.classList.add('is-active'));
+            }
+        }
+    }
+
+    function closeDashboardMenu() {
+        if (dashboardSidebar) {
+            dashboardSidebar.classList.remove('translate-x-0');
+            const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+            if (isRtl) {
+                dashboardSidebar.classList.add('translate-x-full');
+            } else {
+                dashboardSidebar.classList.add('-translate-x-full');
+            }
+            if (dashboardOverlay) {
+                dashboardOverlay.classList.remove('is-active');
+                window.setTimeout(() => {
+                    dashboardOverlay.classList.add('hidden');
+                }, 230);
+            }
+        }
+    }
+
+    if (dashboardMenuBtn) {
+        dashboardMenuBtn.addEventListener('click', openDashboardMenu);
+    }
+
+    if (closeDashboardBtn) {
+        closeDashboardBtn.addEventListener('click', closeDashboardMenu);
+    }
+
+    if (dashboardOverlay) {
+        dashboardOverlay.addEventListener('click', closeDashboardMenu);
+    }
+
+    // Keep sidebar state correct when switching RTL/LTR or resizing
+    window.addEventListener('resize', syncDashboardSidebarForViewport);
+    window.addEventListener('directionchange', () => {
+        // Close on mobile, show on desktop
+        if (window.innerWidth < 768) {
+            closeDashboardMenu();
+        }
+        syncDashboardSidebarForViewport();
+    });
+
+    syncDashboardSidebarForViewport();
 });
