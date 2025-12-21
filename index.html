@@ -32,14 +32,16 @@
 <body class="font-sans text-gray-800 bg-gray-50">
 
     <!-- Navbar -->
-    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <nav class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 shadow-lg shadow-slate-900/20 sticky top-0 z-50 border-b border-slate-700/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="flex items-center gap-2">
-                        <i class="fas fa-chart-line text-oxford-blue text-3xl"></i>
-                        <span class="font-serif text-2xl font-bold text-oxford-blue">Apex Financial</span>
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/30 group-hover:shadow-emerald-500/50 transition-all duration-300">
+                            <i class="fas fa-chart-line text-white text-lg"></i>
+                        </div>
+                        <span class="font-serif text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Apex Financial</span>
                     </a>
                 </div>
 
@@ -47,33 +49,35 @@
                 <div class="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
                     <!-- Home Dropdown -->
                     <div class="relative group">
-                        <button class="font-serif text-gray-700 hover:text-oxford-blue transition flex items-center gap-1 py-2">
-                            Home <i class="fas fa-chevron-down text-xs"></i>
+                        <button class="font-serif text-gray-300 hover:text-emerald-400 transition-colors duration-300 flex items-center gap-1 py-2">
+                            Home <i class="fas fa-chevron-down text-xs group-hover:rotate-180 transition-transform duration-300"></i>
                         </button>
-                        <div class="absolute left-0 rtl:right-0 rtl:left-auto mt-0 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 z-50 border border-gray-100 top-full">
-                            <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-oxford-blue text-left rtl:text-right">Home Version 1</a>
-                            <a href="index2.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-oxford-blue text-left rtl:text-right">Home Version 2</a>
+                        <div class="absolute left-0 rtl:right-0 rtl:left-auto pt-2 w-48 top-full">
+                        <div class="bg-slate-800 rounded-lg shadow-xl shadow-black/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-slate-700 overflow-hidden">
+                            <a href="index.html" class="block px-4 py-3 text-sm text-gray-300 hover:bg-emerald-500/20 hover:text-emerald-400 text-left rtl:text-right transition-colors duration-200">Home Version 1</a>
+                            <a href="index2.html" class="block px-4 py-3 text-sm text-gray-300 hover:bg-emerald-500/20 hover:text-emerald-400 text-left rtl:text-right transition-colors duration-200">Home Version 2</a>
+                        </div>
                         </div>
                     </div>
                     
-                    <a href="services.html" class="font-serif text-gray-700 hover:text-oxford-blue transition">Services</a>
-                    <a href="pricing.html" class="font-serif text-gray-700 hover:text-oxford-blue transition">Pricing</a>
-                    <a href="about.html" class="font-serif text-gray-700 hover:text-oxford-blue transition">About</a>
+                    <a href="services.html" class="font-serif text-gray-300 hover:text-emerald-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-400 hover:after:w-full after:transition-all after:duration-300">Services</a>
+                    <a href="pricing.html" class="font-serif text-gray-300 hover:text-emerald-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-400 hover:after:w-full after:transition-all after:duration-300">Pricing</a>
+                    <a href="about.html" class="font-serif text-gray-300 hover:text-emerald-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-400 hover:after:w-full after:transition-all after:duration-300">About</a>
+                    <a href="user-dashboard.html" class="font-serif text-gray-300 hover:text-emerald-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-400 hover:after:w-full after:transition-all after:duration-300">Dashboard</a>
                 </div>
 
                 <!-- Actions -->
                 <div class="hidden md:flex items-center space-x-4 rtl:space-x-reverse">
-                    <a href="user-dashboard.html" class="text-oxford-blue border border-oxford-blue px-3 py-1.5 rounded hover:bg-oxford-blue hover:text-white transition text-sm font-medium">Dashboard</a>
-                    <a href="login.html" class="text-gray-600 hover:text-oxford-blue font-medium">Client Login</a>
-                    <a href="contact.html" class="bg-oxford-blue text-white px-4 py-2 rounded hover:bg-blue-800 transition">Book Consult</a>
-                    <button id="rtl-toggle" class="text-gray-500 hover:text-oxford-blue transition" title="Toggle RTL">
+                    <a href="login.html" class="text-gray-400 hover:text-white font-medium transition-colors duration-300">Login</a>
+                    <a href="contact.html" class="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-5 py-2 rounded-lg hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 font-semibold">Book Consult</a>
+                    <button id="rtl-toggle" class="text-gray-400 hover:text-emerald-400 transition-colors duration-300" title="Toggle RTL">
                         <i class="ph ph-globe text-xl"></i>
                     </button>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="flex items-center md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-oxford-blue focus:outline-none">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-emerald-400 focus:outline-none transition-colors duration-300">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -81,30 +85,30 @@
         </div>
 
         <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-0 bg-white shadow-xl overflow-hidden transition-all duration-500 ease-in-out z-40 md:hidden">
+        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-0 bg-gradient-to-b from-slate-900 to-slate-800 shadow-xl overflow-hidden transition-all duration-500 ease-in-out z-40 md:hidden">
             <div class="p-6 pt-24">
                 <div class="flex justify-between items-center mb-8">
-                    <button id="mobile-rtl-toggle" class="text-gray-500 hover:text-oxford-blue flex items-center gap-2">
+                    <button id="mobile-rtl-toggle" class="text-gray-400 hover:text-emerald-400 flex items-center gap-2 transition-colors duration-300">
                         <i class="ph ph-globe text-xl"></i>
                     </button>
                 </div>
                 <div class="flex flex-col space-y-4">
                     <!-- Mobile Home Dropdown -->
                     <div class="space-y-2">
-                        <span class="font-serif text-lg text-gray-800 font-semibold block">Home</span>
-                        <div class="pl-4 rtl:pr-4 rtl:pl-0 flex flex-col space-y-2 border-l-2 rtl:border-r-2 rtl:border-l-0 border-gray-100">
-                            <a href="index.html" class="mobile-link text-gray-600 hover:text-oxford-blue">Home Version 1</a>
-                            <a href="index2.html" class="mobile-link text-gray-600 hover:text-oxford-blue">Home Version 2</a>
+                        <span class="font-serif text-lg text-white font-semibold block">Home</span>
+                        <div class="pl-4 rtl:pr-4 rtl:pl-0 flex flex-col space-y-2 border-l-2 rtl:border-r-2 rtl:border-l-0 border-emerald-500/30">
+                            <a href="index.html" class="mobile-link text-gray-400 hover:text-emerald-400 transition-colors duration-300">Home Version 1</a>
+                            <a href="index2.html" class="mobile-link text-gray-400 hover:text-emerald-400 transition-colors duration-300">Home Version 2</a>
                         </div>
                     </div>
 
-                    <a href="services.html" class="mobile-link font-serif text-lg text-gray-800 hover:text-oxford-blue">Services</a>
-                    <a href="pricing.html" class="mobile-link font-serif text-lg text-gray-800 hover:text-oxford-blue">Pricing</a>
-                    <a href="about.html" class="mobile-link font-serif text-lg text-gray-800 hover:text-oxford-blue">About</a>
-                    <hr class="border-gray-200">
-                    <a href="user-dashboard.html" class="mobile-link text-lg text-oxford-blue font-medium">Dashboard</a>
-                    <a href="login.html" class="mobile-link text-lg text-gray-600 hover:text-oxford-blue">Client Login</a>
-                    <a href="contact.html" class="mobile-link bg-oxford-blue text-white px-4 py-2 rounded text-center hover:bg-blue-800">Book Consult</a>
+                    <a href="services.html" class="mobile-link font-serif text-lg text-white hover:text-emerald-400 transition-colors duration-300">Services</a>
+                    <a href="pricing.html" class="mobile-link font-serif text-lg text-white hover:text-emerald-400 transition-colors duration-300">Pricing</a>
+                    <a href="about.html" class="mobile-link font-serif text-lg text-white hover:text-emerald-400 transition-colors duration-300">About</a>
+                    <hr class="border-slate-700">
+                    <a href="user-dashboard.html" class="mobile-link text-lg text-emerald-400 font-medium">Dashboard</a>
+                    <a href="login.html" class="mobile-link text-lg text-gray-400 hover:text-emerald-400 transition-colors duration-300">Login</a>
+                    <a href="contact.html" class="mobile-link bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-3 rounded-lg text-center hover:from-emerald-600 hover:to-teal-600 font-semibold shadow-lg shadow-emerald-500/30 transition-all duration-300">Book Consult</a>
                 </div>
             </div>
         </div>
@@ -427,7 +431,7 @@
                 </div>
                 <div>
                     <h4 class="font-bold mb-4">Connect</h4>
-                    <div class="flex space-x-4">
+                    <div class="flex space-x-4 rtl:space-x-reverse">
                         <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin text-xl"></i></a>
                         <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
                     </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Financial - Client Login</title>
+    <title>Apex Financial - Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,72 +32,95 @@
         }
     </script>
 </head>
-<body class="font-sans text-gray-800 bg-gray-50 bg-guilloche h-screen flex items-center justify-center">
+<body class="font-sans text-gray-800 bg-gray-50 bg-guilloche min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+    
+    <!-- Background decorations -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-20 left-20 w-96 h-96 bg-oxford-blue/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-20 w-72 h-72 bg-growth-green/5 rounded-full blur-3xl"></div>
+    </div>
 
-    <div class="w-full max-w-md bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-200">
-        <div class="bg-oxford-blue p-8 text-center relative">
-            <button id="rtl-toggle" class="absolute top-4 right-4 text-blue-200 hover:text-white transition" title="Toggle RTL">
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200 relative z-10 transform hover:scale-[1.01] transition-transform duration-300">
+        <div class="bg-oxford-blue p-8 text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-oxford-blue via-blue-800 to-oxford-blue"></div>
+            <div class="absolute top-0 right-0 w-32 h-32 bg-growth-green/10 rounded-full blur-2xl"></div>
+            <button id="rtl-toggle" class="absolute top-4 right-4 text-blue-200 hover:text-white transition z-10" title="Toggle RTL">
                 <i class="ph ph-globe text-xl"></i>
             </button>
-            <a href="index.html" class="inline-flex items-center gap-2 text-white mb-4">
-                <i class="fas fa-chart-line text-2xl"></i>
-                <span class="font-serif text-xl font-bold">Apex Financial</span>
-            </a>
-            <h2 class="text-white text-lg font-medium">Secure Client Portal</h2>
-            <p class="text-blue-200 text-sm mt-1"><i class="fas fa-lock mr-1"></i> 256-bit SSL Encrypted</p>
+            <div class="relative z-10">
+                <a href="index.html" class="inline-flex items-center gap-2 text-white mb-4 group">
+                    <i class="fas fa-chart-line text-3xl group-hover:text-growth-green transition"></i>
+                    <span class="font-serif text-2xl font-bold">Apex Financial</span>
+                </a>
+                <h2 class="text-white text-xl font-semibold mt-2">Secure Client Portal</h2>
+                <p class="text-blue-200 text-sm mt-2 flex items-center justify-center gap-2">
+                    <i class="fas fa-shield-alt text-growth-green"></i> 256-bit SSL Encrypted
+                </p>
+            </div>
         </div>
         
         <form class="p-8 space-y-6" action="user-dashboard.html">
-            <div>
-                <label for="client-id" class="block text-sm font-medium text-gray-700 mb-1">Client ID</label>
-                <div class="relative">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <i class="fas fa-user text-gray-400"></i>
+            <div class="space-y-2">
+                <label for="client-id" class="block text-sm font-semibold text-gray-700">Client ID</label>
+                <div class="relative group">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <i class="fas fa-user text-gray-400 group-focus-within:text-oxford-blue transition"></i>
                     </div>
-                    <input type="text" id="client-id" class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-oxford-blue focus:border-oxford-blue sm:text-sm" placeholder="Enter your Client ID">
+                    <input type="text" id="client-id" class="block w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-xl leading-5 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-oxford-blue/20 focus:border-oxford-blue focus:bg-white transition-all duration-300" placeholder="Enter your Client ID">
                 </div>
             </div>
 
-            <div>
-                <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                <div class="relative">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <i class="fas fa-key text-gray-400"></i>
+            <div class="space-y-2">
+                <label for="password" class="block text-sm font-semibold text-gray-700">Password</label>
+                <div class="relative group">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <i class="fas fa-key text-gray-400 group-focus-within:text-oxford-blue transition"></i>
                     </div>
-                    <input type="password" id="password" class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-oxford-blue focus:border-oxford-blue sm:text-sm" placeholder="••••••••">
+                    <input type="password" id="password" class="block w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-xl leading-5 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-oxford-blue/20 focus:border-oxford-blue focus:bg-white transition-all duration-300" placeholder="••••••••">
                 </div>
             </div>
 
-            <div>
-                <label for="2fa" class="block text-sm font-medium text-gray-700 mb-1">2FA Code</label>
-                <div class="relative">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <i class="fas fa-shield-alt text-gray-400"></i>
+            <div class="space-y-2">
+                <label for="2fa" class="block text-sm font-semibold text-gray-700">2FA Code</label>
+                <div class="relative group">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <i class="fas fa-shield-alt text-gray-400 group-focus-within:text-oxford-blue transition"></i>
                     </div>
-                    <input type="text" id="2fa" class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-oxford-blue focus:border-oxford-blue sm:text-sm" placeholder="123 456">
+                    <input type="text" id="2fa" class="block w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-xl leading-5 bg-gray-50 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-oxford-blue/20 focus:border-oxford-blue focus:bg-white transition-all duration-300" placeholder="123 456">
                 </div>
-                <p class="text-xs text-gray-500 mt-1">Enter the code from your authenticator app.</p>
+                <p class="text-xs text-gray-500 flex items-center gap-1">
+                    <i class="fas fa-info-circle"></i> Enter the code from your authenticator app.
+                </p>
             </div>
 
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <input id="remember-me" type="checkbox" class="h-4 w-4 text-oxford-blue focus:ring-oxford-blue border-gray-300 rounded">
-                    <label for="remember-me" class="ml-2 block text-sm text-gray-900">Remember me</label>
+                    <input id="remember-me" type="checkbox" class="h-4 w-4 text-oxford-blue focus:ring-oxford-blue border-gray-300 rounded cursor-pointer">
+                    <label for="remember-me" class="ml-2 block text-sm text-gray-700 cursor-pointer">Remember me</label>
                 </div>
                 <div class="text-sm">
-                    <a href="#" class="font-medium text-oxford-blue hover:text-blue-800">Forgot password?</a>
+                    <a href="#" class="font-semibold text-oxford-blue hover:text-blue-800 transition">Forgot password?</a>
                 </div>
             </div>
 
-            <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-oxford-blue hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-oxford-blue transition">
-                Sign In
+            <button type="submit" class="w-full flex justify-center items-center gap-2 py-3 px-4 border border-transparent rounded-xl shadow-lg text-sm font-bold text-white bg-oxford-blue hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-oxford-blue transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-xl">
+                <i class="fas fa-sign-in-alt"></i> Sign In
             </button>
         </form>
         
-        <div class="bg-gray-50 px-8 py-4 border-t border-gray-200 text-center">
-            <p class="text-xs text-gray-500">Unauthorized access is prohibited and monitored.</p>
-            <div class="mt-2">
-                <a href="admin-dashboard.html" class="text-xs text-gray-400 hover:text-gray-600">Admin Login</a>
+        <div class="bg-gray-50 px-8 py-4 border-t border-gray-100 text-center">
+            <p class="text-xs text-gray-500 flex items-center justify-center gap-2">
+                <i class="fas fa-exclamation-triangle text-amber-500"></i>
+                Unauthorized access is prohibited and monitored.
+            </p>
+            <div class="mt-3 flex items-center justify-center gap-4">
+                <a href="admin-dashboard.html" class="text-xs text-gray-400 hover:text-oxford-blue transition flex items-center gap-1">
+                    <i class="fas fa-user-shield"></i> Admin Login
+                </a>
+                <span class="text-gray-300">|</span>
+                <a href="contact.html" class="text-xs text-gray-400 hover:text-oxford-blue transition flex items-center gap-1">
+                    <i class="fas fa-headset"></i> Need Help?
+                </a>
             </div>
         </div>
     </div>

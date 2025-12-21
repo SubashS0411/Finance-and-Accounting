@@ -18,7 +18,7 @@ A modern, responsive finance/consulting website with **premium UI**, **animated 
 - `pricing.html` — Pricing
 - `about.html` — About
 - `contact.html` — Contact
-- `login.html` — Client login (routes to dashboard)
+- `login.html` — Login portal (routes to dashboard)
 - `user-dashboard.html` — Client dashboard
 - `admin-dashboard.html` — Admin dashboard
 - `404.html` — Not found

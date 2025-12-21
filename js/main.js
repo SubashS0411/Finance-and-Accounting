@@ -1,5 +1,70 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Menu Logic
+    // ============================================
+    // SCROLL-TRIGGERED ANIMATIONS
+    // ============================================
+    const scrollAnimateElements = document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale');
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                scrollObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    scrollAnimateElements.forEach(el => {
+        scrollObserver.observe(el);
+    });
+
+    // ============================================
+    // COUNTER ANIMATION
+    // ============================================
+    const counters = document.querySelectorAll('.counter');
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000; // Animation duration in ms
+                const startTime = performance.now();
+                
+                const updateCounter = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Easing function (ease-out-cubic)
+                    const easeOut = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.floor(target * easeOut);
+                    
+                    counter.textContent = current.toLocaleString();
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target.toLocaleString();
+                    }
+                };
+                
+                requestAnimationFrame(updateCounter);
+                counterObserver.unobserve(counter);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
+    });
+
+    // ============================================
+    // MOBILE MENU LOGIC
+    // ============================================
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -176,4 +241,151 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     syncDashboardSidebarForViewport();
+
+    // ============================================
+    // SMOOTH SCROLL FOR ANCHOR LINKS
+    // ============================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            e.preventDefault();
+            const target = document.querySelector(targetId);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // ============================================
+    // NAVBAR SCROLL EFFECT
+    // ============================================
+    const navbar = document.querySelector('nav');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    }
+
+    // ============================================
+    // PARALLAX EFFECT FOR HERO SECTIONS
+    // ============================================
+    const parallaxElements = document.querySelectorAll('.parallax-bg');
+    
+    window.addEventListener('scroll', () => {
+        parallaxElements.forEach(el => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * 0.3;
+            el.style.transform = `translateY(${rate}px)`;
+        });
+    });
+
+    // ============================================
+    // LAZY LOADING IMAGES
+    // ============================================
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    lazyImages.forEach(img => {
+        imageObserver.observe(img);
+    });
+
+    // ============================================
+    // TOOLTIP INITIALIZATION
+    // ============================================
+    const tooltips = document.querySelectorAll('[data-tooltip]');
+    tooltips.forEach(el => {
+        el.classList.add('tooltip');
+    });
+
+    // ============================================
+    // PROGRESS BAR ANIMATION
+    // ============================================
+    const progressBars = document.querySelectorAll('.progress-bar-fill');
+    
+    const progressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                const width = bar.getAttribute('data-width') || bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+                progressObserver.unobserve(bar);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    progressBars.forEach(bar => {
+        progressObserver.observe(bar);
+    });
+
+    // ============================================
+    // FORM VALIDATION ENHANCEMENT
+    // ============================================
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        const inputs = form.querySelectorAll('input, textarea, select');
+        
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => {
+                if (input.checkValidity()) {
+                    input.classList.remove('border-red-500');
+                    input.classList.add('border-green-500');
+                } else if (input.value) {
+                    input.classList.remove('border-green-500');
+                    input.classList.add('border-red-500');
+                }
+            });
+
+            input.addEventListener('input', () => {
+                input.classList.remove('border-red-500', 'border-green-500');
+            });
+        });
+    });
+
+    // ============================================
+    // BACK TO TOP BUTTON
+    // ============================================
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    backToTopBtn.className = 'fixed bottom-8 right-8 w-12 h-12 bg-oxford-blue text-white rounded-full shadow-lg hover:bg-blue-800 transition-all duration-300 z-50 opacity-0 invisible transform translate-y-4';
+    backToTopBtn.setAttribute('aria-label', 'Back to top');
+    document.body.appendChild(backToTopBtn);
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+            backToTopBtn.classList.add('opacity-100', 'visible', 'translate-y-0');
+        } else {
+            backToTopBtn.classList.add('opacity-0', 'invisible', 'translate-y-4');
+            backToTopBtn.classList.remove('opacity-100', 'visible', 'translate-y-0');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 });
