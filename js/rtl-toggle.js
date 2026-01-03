@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Select all toggle buttons (desktop and mobile)
-    const rtlToggleBtns = document.querySelectorAll('#rtl-toggle, #mobile-rtl-toggle');
+    // Select all toggle buttons (desktop, mobile, and dashboard)
+    const rtlToggleBtns = document.querySelectorAll('#rtl-toggle, #mobile-rtl-toggle, #dashboard-rtl-toggle');
     const htmlElement = document.documentElement;
     const bodyElement = document.body;
 

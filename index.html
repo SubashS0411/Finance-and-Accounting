@@ -19,6 +19,8 @@
                     colors: {
                         'oxford-blue': '#1e3a8a',
                         'growth-green': '#10b981',
+                        'deep-purple': '#7c3aed',
+                        'warm-orange': '#f59e0b',
                     },
                     fontFamily: {
                         serif: ['Playfair Display', 'serif'],
@@ -115,122 +117,151 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative bg-oxford-blue h-[700px] flex items-center justify-center text-center text-white overflow-hidden">
+    <header class="relative bg-gradient-to-br from-oxford-blue via-slate-900 to-oxford-blue min-h-[90vh] flex items-center justify-center text-center text-white overflow-hidden">
+        <!-- Animated Background Elements -->
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Skyscraper" class="w-full h-full object-cover opacity-20">
-            <div class="absolute inset-0 bg-gradient-to-b from-oxford-blue/80 to-oxford-blue/40"></div>
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Skyscraper" class="w-full h-full object-cover opacity-10">
+            <div class="absolute inset-0 bg-gradient-to-b from-oxford-blue/90 via-slate-900/80 to-oxford-blue/90"></div>
+            <div class="absolute top-20 left-10 w-72 h-72 bg-growth-green/20 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-growth-green/10 to-purple-600/10 rounded-full blur-3xl"></div>
         </div>
-        <div class="relative z-10 max-w-5xl mx-auto px-4">
-            <span class="inline-block py-1 px-3 rounded-full bg-blue-800/50 border border-blue-400 text-blue-200 text-sm font-semibold mb-6 backdrop-blur-sm">
-                <i class="fas fa-star text-yellow-400 mr-1"></i> Voted #1 Financial Firm 2024
-            </span>
-            <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight">
+        
+        <!-- Grid Pattern Overlay -->
+        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 50px 50px;"></div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto px-4">
+            <div class="inline-flex items-center gap-2 py-2 px-4 rounded-full bg-white/10 border border-white/20 text-sm font-semibold mb-8 backdrop-blur-sm animate-pulse">
+                <span class="w-2 h-2 bg-growth-green rounded-full animate-ping"></span>
+                <span class="text-growth-green"><i class="fas fa-trophy mr-1"></i> Voted #1 Financial Firm 2025</span>
+            </div>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight tracking-tight">
                 Precision in Numbers.<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-growth-green to-emerald-300">Excellence in Strategy.</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-growth-green via-emerald-300 to-teal-400 animate-pulse">Excellence in Strategy.</span>
             </h1>
-            <p class="text-xl md:text-2xl text-gray-200 mb-10 font-light max-w-3xl mx-auto">
-                Trusted by Fortune 500 companies for audit, tax, and advisory services. We turn complex financial data into actionable growth strategies.
+            <p class="text-xl md:text-2xl text-blue-100/80 mb-12 font-light max-w-3xl mx-auto leading-relaxed">
+                Trusted by Fortune 500 companies for audit, tax, and advisory services. We transform complex financial data into powerful growth strategies.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="services.html" class="bg-growth-green text-white px-8 py-4 rounded-lg font-semibold hover:bg-emerald-600 transition shadow-lg hover:shadow-emerald-500/30 transform hover:-translate-y-1">Explore Services</a>
-                <a href="contact.html" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-oxford-blue transition shadow-lg transform hover:-translate-y-1">Contact Us</a>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+                <a href="services.html" class="group bg-gradient-to-r from-growth-green to-emerald-500 text-white px-10 py-4 rounded-xl font-semibold shadow-2xl shadow-growth-green/30 hover:shadow-growth-green/50 transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2">
+                    Explore Services <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="contact.html" class="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-10 py-4 rounded-xl font-semibold hover:bg-white hover:text-oxford-blue transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2">
+                    <i class="fas fa-phone-alt"></i> Contact Us
+                </a>
             </div>
             
             <!-- Stats Row -->
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-8">
-                <div>
-                    <div class="text-3xl font-bold text-white">500+</div>
-                    <div class="text-sm text-blue-200">Corporate Clients</div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
+                    <div class="text-4xl font-bold text-white mb-1">500+</div>
+                    <div class="text-sm text-blue-200 font-medium">Corporate Clients</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-bold text-white">$10B+</div>
-                    <div class="text-sm text-blue-200">Assets Managed</div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
+                    <div class="text-4xl font-bold text-white mb-1">$10B+</div>
+                    <div class="text-sm text-blue-200 font-medium">Assets Managed</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-bold text-white">35+</div>
-                    <div class="text-sm text-blue-200">Years Experience</div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
+                    <div class="text-4xl font-bold text-white mb-1">35+</div>
+                    <div class="text-sm text-blue-200 font-medium">Years Experience</div>
                 </div>
-                <div>
-                    <div class="text-3xl font-bold text-white">100%</div>
-                    <div class="text-sm text-blue-200">Compliance Rate</div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
+                    <div class="text-4xl font-bold text-white mb-1">100%</div>
+                    <div class="text-sm text-blue-200 font-medium">Compliance Rate</div>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
             </div>
         </div>
     </header>
 
     <!-- Trust Strip -->
-    <div class="bg-gray-100 border-b border-gray-200 py-4">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-600 font-medium uppercase tracking-wider text-sm">
-                <i class="fas fa-check-circle text-growth-green mr-2"></i> Audited 500+ Companies 
-                <span class="mx-4 text-gray-300">|</span> 
-                <i class="fas fa-chart-pie text-growth-green mr-2"></i> $10B+ Assets Managed
+    <div class="bg-gradient-to-r from-oxford-blue to-slate-800 py-4 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+            <p class="text-white font-medium uppercase tracking-wider text-sm flex flex-wrap items-center justify-center gap-6">
+                <span class="flex items-center gap-2"><i class="fas fa-check-circle text-growth-green"></i> Audited 500+ Companies</span>
+                <span class="hidden md:inline text-white/30">•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-chart-pie text-growth-green"></i> $10B+ Assets Managed</span>
+                <span class="hidden md:inline text-white/30">•</span>
+                <span class="flex items-center gap-2"><i class="fas fa-globe text-growth-green"></i> 15 Global Offices</span>
             </p>
         </div>
     </div>
 
     <!-- Our Clients -->
-    <section class="py-10 bg-white border-b border-gray-100">
+    <section class="py-16 bg-gradient-to-b from-white to-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-gray-500 text-sm font-semibold uppercase tracking-wider mb-6">Trusted by Innovative Companies</p>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-                <div class="flex items-center gap-2 text-2xl font-bold text-gray-700"><i class="fab fa-aws text-3xl"></i> Amazon</div>
-                <div class="flex items-center gap-2 text-2xl font-bold text-gray-700"><i class="fab fa-google text-3xl"></i> Google</div>
-                <div class="flex items-center gap-2 text-2xl font-bold text-gray-700"><i class="fab fa-microsoft text-3xl"></i> Microsoft</div>
-                <div class="flex items-center gap-2 text-2xl font-bold text-gray-700"><i class="fab fa-spotify text-3xl"></i> Spotify</div>
-                <div class="flex items-center gap-2 text-2xl font-bold text-gray-700"><i class="fab fa-airbnb text-3xl"></i> Airbnb</div>
+            <p class="text-center text-gray-500 text-sm font-bold uppercase tracking-widest mb-10">Trusted by Industry Leaders Worldwide</p>
+            <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-400 hover:text-gray-800 transition-all duration-300 hover:scale-110 cursor-pointer"><i class="fab fa-aws text-4xl"></i> <span class="hidden sm:inline">Amazon</span></div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-400 hover:text-gray-800 transition-all duration-300 hover:scale-110 cursor-pointer"><i class="fab fa-google text-4xl"></i> <span class="hidden sm:inline">Google</span></div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-400 hover:text-gray-800 transition-all duration-300 hover:scale-110 cursor-pointer"><i class="fab fa-microsoft text-4xl"></i> <span class="hidden sm:inline">Microsoft</span></div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-400 hover:text-gray-800 transition-all duration-300 hover:scale-110 cursor-pointer"><i class="fab fa-spotify text-4xl"></i> <span class="hidden sm:inline">Spotify</span></div>
+                <div class="flex items-center gap-3 text-2xl font-bold text-gray-400 hover:text-gray-800 transition-all duration-300 hover:scale-110 cursor-pointer"><i class="fab fa-airbnb text-4xl"></i> <span class="hidden sm:inline">Airbnb</span></div>
             </div>
         </div>
     </section>
 
     <!-- Service Trio -->
-    <section class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-24 bg-white relative overflow-hidden">
+        <!-- Background Decoration -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-growth-green/5 to-transparent rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-oxford-blue/5 to-transparent rounded-full blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
-                <span class="text-growth-green font-bold tracking-wider uppercase text-sm">What We Do</span>
-                <h2 class="font-serif text-4xl font-bold text-oxford-blue mt-2 mb-4">Comprehensive Financial Expertise</h2>
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-growth-green/10 text-growth-green font-bold tracking-wider uppercase text-sm mb-4">
+                    <i class="fas fa-briefcase"></i> What We Do
+                </span>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-oxford-blue mt-2 mb-4">Comprehensive Financial Expertise</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto text-lg">We provide a full spectrum of financial solutions tailored to drive growth and ensure strict compliance for your business.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-2xl transition duration-300 group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -mr-4 -mt-4 transition group-hover:bg-blue-100"></div>
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-500 group relative overflow-hidden hover:-translate-y-2">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-oxford-blue/10 to-transparent rounded-bl-full transition-all duration-500 group-hover:w-40 group-hover:h-40"></div>
                     <div class="relative z-10">
-                        <div class="w-14 h-14 bg-oxford-blue rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-blue-900/20 group-hover:scale-110 transition duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-oxford-blue to-blue-700 rounded-2xl flex items-center justify-center mb-6 shadow-xl shadow-blue-900/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                             <i class="fas fa-file-invoice-dollar text-white text-2xl"></i>
                         </div>
                         <h3 class="font-serif text-2xl font-bold text-gray-900 mb-3 group-hover:text-oxford-blue transition">Tax Preparation</h3>
                         <p class="text-gray-600 mb-6 leading-relaxed">Strategic tax planning and compliance for corporations and high-net-worth individuals. We maximize your savings while minimizing risk.</p>
-                        <a href="services.html" class="inline-flex items-center text-oxford-blue font-semibold hover:text-growth-green transition group-hover:translate-x-2">
-                            Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        <a href="services.html" class="inline-flex items-center text-oxford-blue font-semibold hover:gap-3 gap-2 transition-all">
+                            Learn more <i class="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-2xl transition duration-300 group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-bl-full -mr-4 -mt-4 transition group-hover:bg-emerald-100"></div>
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-500 group relative overflow-hidden hover:-translate-y-2">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-growth-green/10 to-transparent rounded-bl-full transition-all duration-500 group-hover:w-40 group-hover:h-40"></div>
                     <div class="relative z-10">
-                        <div class="w-14 h-14 bg-growth-green rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-900/20 group-hover:scale-110 transition duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-growth-green to-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-xl shadow-emerald-900/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                             <i class="fas fa-search-dollar text-white text-2xl"></i>
                         </div>
                         <h3 class="font-serif text-2xl font-bold text-gray-900 mb-3 group-hover:text-growth-green transition">Forensic Accounting</h3>
                         <p class="text-gray-600 mb-6 leading-relaxed">Deep-dive financial investigations to uncover discrepancies and ensure integrity. We protect your assets with rigorous analysis.</p>
-                        <a href="services.html" class="inline-flex items-center text-growth-green font-semibold hover:text-oxford-blue transition group-hover:translate-x-2">
-                            Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        <a href="services.html" class="inline-flex items-center text-growth-green font-semibold hover:gap-3 gap-2 transition-all">
+                            Learn more <i class="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-2xl transition duration-300 group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-purple-50 rounded-bl-full -mr-4 -mt-4 transition group-hover:bg-purple-100"></div>
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-500 group relative overflow-hidden hover:-translate-y-2">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-600/10 to-transparent rounded-bl-full transition-all duration-500 group-hover:w-40 group-hover:h-40"></div>
                     <div class="relative z-10">
-                        <div class="w-14 h-14 bg-purple-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-purple-900/20 group-hover:scale-110 transition duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-700 rounded-2xl flex items-center justify-center mb-6 shadow-xl shadow-purple-900/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                             <i class="fas fa-handshake text-white text-2xl"></i>
                         </div>
                         <h3 class="font-serif text-2xl font-bold text-gray-900 mb-3 group-hover:text-purple-700 transition">Mergers & Acquisitions</h3>
                         <p class="text-gray-600 mb-6 leading-relaxed">Expert valuation and due diligence to guide your most critical business decisions. We ensure you get the best deal possible.</p>
-                        <a href="services.html" class="inline-flex items-center text-purple-700 font-semibold hover:text-oxford-blue transition group-hover:translate-x-2">
-                            Learn more <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        <a href="services.html" class="inline-flex items-center text-purple-700 font-semibold hover:gap-3 gap-2 transition-all">
+                            Learn more <i class="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
                 </div>
@@ -325,9 +356,17 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-24 bg-oxford-blue text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="font-serif text-3xl font-bold mb-12">Trusted by Industry Leaders</h2>
+    <section class="py-24 bg-gradient-to-br from-oxford-blue via-slate-900 to-oxford-blue text-white relative overflow-hidden">
+        <!-- Background Effects -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-growth-green/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-growth-green font-bold tracking-wider uppercase text-sm mb-4">
+                <i class="fas fa-quote-left"></i> Testimonials
+            </span>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-12">Trusted by Industry Leaders</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl border border-white/20 text-left rtl:text-right">
                     <div class="flex text-yellow-400 mb-4">
@@ -403,42 +442,51 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-gray-900 text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div>
-                    <div class="flex items-center gap-2 mb-4">
-                        <i class="fas fa-chart-line text-growth-green text-2xl"></i>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-growth-green to-emerald-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white"></i>
+                        </div>
                         <span class="font-serif text-xl font-bold">Apex Financial</span>
                     </div>
-                    <p class="text-gray-400 text-sm">Providing world-class financial services since 1985.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Services</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="#" class="hover:text-white">Audit & Assurance</a></li>
-                        <li><a href="#" class="hover:text-white">Tax Services</a></li>
-                        <li><a href="#" class="hover:text-white">Advisory</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Company</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="about.html" class="hover:text-white">About Us</a></li>
-                        <li><a href="contact.html" class="hover:text-white">Careers</a></li>
-                        <li><a href="contact.html" class="hover:text-white">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Connect</h4>
-                    <div class="flex space-x-4 rtl:space-x-reverse">
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+                    <p class="text-gray-400 text-sm leading-relaxed">Providing world-class financial services since 1985.</p>
+                    <div class="flex gap-4 mt-6">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-growth-green transition-colors"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-growth-green transition-colors"><i class="fab fa-twitter"></i></a>
                     </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Services</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="services.html" class="hover:text-growth-green transition-colors">Audit & Assurance</a></li>
+                        <li><a href="services.html" class="hover:text-growth-green transition-colors">Tax Services</a></li>
+                        <li><a href="services.html" class="hover:text-growth-green transition-colors">Advisory</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Company</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="about.html" class="hover:text-growth-green transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-growth-green transition-colors">Careers</a></li>
+                        <li><a href="contact.html" class="hover:text-growth-green transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Newsletter</h4>
+                    <p class="text-gray-400 text-sm mb-4">Get financial insights delivered weekly.</p>
+                    <form class="flex gap-2">
+                        <input type="email" placeholder="Your email" class="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-growth-green">
+                        <button type="submit" class="bg-growth-green px-4 py-2 rounded-lg hover:bg-emerald-600 transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-                &copy; 2025 Apex Financial. All rights reserved.
+                &copy; 2026 Apex Financial. All rights reserved.
             </div>
         </div>
     </footer>
