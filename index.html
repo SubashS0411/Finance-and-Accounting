@@ -65,7 +65,19 @@
                     <a href="services.html" class="font-serif text-gray-300 hover:text-emerald-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-400 hover:after:w-full after:transition-all after:duration-300">Services</a>
                     <a href="pricing.html" class="font-serif text-gray-300 hover:text-emerald-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-400 hover:after:w-full after:transition-all after:duration-300">Pricing</a>
                     <a href="about.html" class="font-serif text-gray-300 hover:text-emerald-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-400 hover:after:w-full after:transition-all after:duration-300">About</a>
-                    <a href="user-dashboard.html" class="font-serif text-gray-300 hover:text-emerald-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-400 hover:after:w-full after:transition-all after:duration-300">Dashboard</a>
+                    
+                    <!-- Dashboard Dropdown -->
+                    <div class="relative group">
+                        <button class="font-serif text-gray-300 hover:text-emerald-400 transition-colors duration-300 flex items-center gap-1 py-2">
+                            <i class="fas fa-th-large text-sm"></i> Dashboard <i class="fas fa-chevron-down text-xs group-hover:rotate-180 transition-transform duration-300"></i>
+                        </button>
+                        <div class="absolute left-0 rtl:right-0 rtl:left-auto pt-2 w-48 top-full">
+                        <div class="bg-slate-800 rounded-lg shadow-xl shadow-black/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-slate-700 overflow-hidden">
+                            <a href="user-dashboard.html" class="block px-4 py-3 text-sm text-gray-300 hover:bg-emerald-500/20 hover:text-emerald-400 text-left rtl:text-right transition-colors duration-200"><i class="fas fa-user mr-2"></i>User Dashboard</a>
+                            <a href="admin-dashboard.html" class="block px-4 py-3 text-sm text-gray-300 hover:bg-emerald-500/20 hover:text-emerald-400 text-left rtl:text-right transition-colors duration-200"><i class="fas fa-user-shield mr-2"></i>Admin Dashboard</a>
+                        </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Actions -->
@@ -107,8 +119,17 @@
                     <a href="services.html" class="mobile-link font-serif text-lg text-white hover:text-emerald-400 transition-colors duration-300">Services</a>
                     <a href="pricing.html" class="mobile-link font-serif text-lg text-white hover:text-emerald-400 transition-colors duration-300">Pricing</a>
                     <a href="about.html" class="mobile-link font-serif text-lg text-white hover:text-emerald-400 transition-colors duration-300">About</a>
+                    
+                    <!-- Mobile Dashboard Dropdown -->
+                    <div class="space-y-2">
+                        <span class="font-serif text-lg text-white font-semibold block flex items-center gap-2"><i class="fas fa-th-large"></i> Dashboard</span>
+                        <div class="pl-4 rtl:pr-4 rtl:pl-0 flex flex-col space-y-2 border-l-2 rtl:border-r-2 rtl:border-l-0 border-emerald-500/30">
+                            <a href="user-dashboard.html" class="mobile-link text-gray-400 hover:text-emerald-400 transition-colors duration-300 flex items-center gap-2"><i class="fas fa-user"></i>User Dashboard</a>
+                            <a href="admin-dashboard.html" class="mobile-link text-gray-400 hover:text-emerald-400 transition-colors duration-300 flex items-center gap-2"><i class="fas fa-user-shield"></i>Admin Dashboard</a>
+                        </div>
+                    </div>
+                    
                     <hr class="border-slate-700">
-                    <a href="user-dashboard.html" class="mobile-link text-lg text-emerald-400 font-medium">Dashboard</a>
                     <a href="login.html" class="mobile-link text-lg text-gray-400 hover:text-emerald-400 transition-colors duration-300">Login</a>
                     <a href="contact.html" class="mobile-link bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-3 rounded-lg text-center hover:from-emerald-600 hover:to-teal-600 font-semibold shadow-lg shadow-emerald-500/30 transition-all duration-300">Signup</a>
                 </div>

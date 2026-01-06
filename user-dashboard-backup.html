@@ -71,19 +71,7 @@
                     <a href="services.html" class="font-serif text-gray-300 hover:text-emerald-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-400 hover:after:w-full after:transition-all after:duration-300">Services</a>
                     <a href="pricing.html" class="font-serif text-gray-300 hover:text-emerald-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-400 hover:after:w-full after:transition-all after:duration-300">Pricing</a>
                     <a href="about.html" class="font-serif text-gray-300 hover:text-emerald-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-emerald-400 hover:after:w-full after:transition-all after:duration-300">About</a>
-                    
-                    <!-- Dashboard Dropdown -->
-                    <div class="relative group">
-                        <button class="font-serif text-emerald-400 transition-colors duration-300 flex items-center gap-1 py-2">
-                            <i class="fas fa-th-large text-sm"></i> Dashboard <i class="fas fa-chevron-down text-xs group-hover:rotate-180 transition-transform duration-300"></i>
-                        </button>
-                        <div class="absolute left-0 rtl:right-0 rtl:left-auto pt-2 w-48 top-full">
-                        <div class="bg-slate-800 rounded-lg shadow-xl shadow-black/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-slate-700 overflow-hidden">
-                            <a href="user-dashboard.html" class="block px-4 py-3 text-sm text-emerald-400 hover:bg-emerald-500/20 text-left rtl:text-right transition-colors duration-200"><i class="fas fa-user mr-2"></i>User Dashboard</a>
-                            <a href="admin-dashboard.html" class="block px-4 py-3 text-sm text-gray-300 hover:bg-emerald-500/20 hover:text-emerald-400 text-left rtl:text-right transition-colors duration-200"><i class="fas fa-user-shield mr-2"></i>Admin Dashboard</a>
-                        </div>
-                        </div>
-                    </div>
+                    <a href="user-dashboard.html" class="font-serif text-emerald-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-emerald-400">Dashboard</a>
                 </div>
 
                 <!-- Actions -->
@@ -125,15 +113,8 @@
                     <a href="services.html" class="mobile-link font-serif text-lg text-white hover:text-emerald-400 transition-colors duration-300">Services</a>
                     <a href="pricing.html" class="mobile-link font-serif text-lg text-white hover:text-emerald-400 transition-colors duration-300">Pricing</a>
                     <a href="about.html" class="mobile-link font-serif text-lg text-white hover:text-emerald-400 transition-colors duration-300">About</a>
-                    
-                    <!-- Mobile Dashboard Dropdown -->
-                    <div class="space-y-2">
-                        <span class="font-serif text-lg text-white font-semibold block flex items-center gap-2"><i class="fas fa-th-large"></i> Dashboard</span>
-                        <div class="pl-4 rtl:pr-4 rtl:pl-0 flex flex-col space-y-2 border-l-2 rtl:border-r-2 rtl:border-l-0 border-emerald-500/30">
-                            <a href="user-dashboard.html" class="mobile-link text-emerald-400 transition-colors duration-300 flex items-center gap-2"><i class="fas fa-user"></i>User Dashboard</a>
-                            <a href="admin-dashboard.html" class="mobile-link text-gray-400 hover:text-emerald-400 transition-colors duration-300 flex items-center gap-2"><i class="fas fa-user-shield"></i>Admin Dashboard</a>
-                        </div>
-                    </div>
+                    <hr class="border-slate-700">
+                    <a href="user-dashboard.html" class="mobile-link text-lg text-emerald-400 font-medium">Dashboard</a>
                     <a href="login.html" class="mobile-link text-lg text-gray-400 hover:text-emerald-400 transition-colors duration-300">Login</a>
                     <a href="contact.html" class="mobile-link bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-3 rounded-lg text-center hover:from-emerald-600 hover:to-teal-600 font-semibold shadow-lg shadow-emerald-500/30 transition-all duration-300">Signup</a>
                 </div>
@@ -186,16 +167,16 @@
             
             <!-- Topbar -->
             <header class="bg-white shadow-sm z-10">
-                <div class="flex items-center justify-between px-3 sm:px-6 py-3 sm:py-4">
-                    <div class="flex items-center gap-2 sm:gap-4">
+                <div class="flex items-center justify-between px-6 py-4">
+                    <div class="flex items-center gap-4">
                         <button id="dashboard-mobile-menu-btn" class="md:hidden text-gray-600 hover:text-oxford-blue">
-                            <i class="fas fa-bars text-xl sm:text-2xl"></i>
+                            <i class="fas fa-bars text-2xl"></i>
                         </button>
-                        <h1 class="text-lg sm:text-2xl font-serif font-bold text-gray-800">Overview</h1>
+                        <h1 class="text-2xl font-serif font-bold text-gray-800">Overview</h1>
                     </div>
-                    <div class="flex items-center gap-2 sm:gap-4">
+                    <div class="flex items-center gap-4">
                         <button id="dashboard-rtl-toggle" class="text-gray-500 hover:text-oxford-blue transition" title="Toggle RTL">
-                            <i class="ph ph-globe text-lg sm:text-xl"></i>
+                            <i class="ph ph-globe text-xl"></i>
                         </button>
                         <div class="text-right hidden sm:block">
                             <p class="text-sm font-bold text-gray-900">Acme Corp Inc.</p>
@@ -209,22 +190,22 @@
             </header>
 
             <!-- Dashboard Content -->
-            <main class="flex-1 overflow-y-auto p-3 sm:p-4 md:p-6">
+            <main class="flex-1 overflow-y-auto p-6">
                 
                 <!-- Welcome Banner -->
-                <div class="bg-gradient-to-r from-oxford-blue to-blue-700 rounded-xl sm:rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 text-white relative overflow-hidden">
+                <div class="bg-gradient-to-r from-oxford-blue to-blue-700 rounded-2xl p-6 mb-6 text-white relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/4"></div>
                     <div class="absolute bottom-0 left-1/2 w-48 h-48 bg-white/5 rounded-full translate-y-1/2"></div>
-                    <div class="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-3 sm:gap-4">
+                    <div class="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                         <div>
-                            <h2 class="text-xl sm:text-2xl font-bold mb-1 sm:mb-2">Welcome back, Acme Corp! 👋</h2>
-                            <p class="text-sm sm:text-base text-blue-200">Here's what's happening with your finances today.</p>
+                            <h2 class="text-2xl font-bold mb-2">Welcome back, Acme Corp! 👋</h2>
+                            <p class="text-blue-200">Here's what's happening with your finances today.</p>
                         </div>
-                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
-                            <button class="bg-white/20 hover:bg-white/30 backdrop-blur px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition flex items-center justify-center gap-2">
+                        <div class="flex gap-3">
+                            <button class="bg-white/20 hover:bg-white/30 backdrop-blur px-4 py-2 rounded-lg text-sm font-medium transition flex items-center gap-2">
                                 <i class="fas fa-download"></i> Download Report
                             </button>
-                            <button class="bg-growth-green hover:bg-emerald-600 px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition flex items-center justify-center gap-2">
+                            <button class="bg-growth-green hover:bg-emerald-600 px-4 py-2 rounded-lg text-sm font-medium transition flex items-center gap-2">
                                 <i class="fas fa-plus"></i> New Transaction
                             </button>
                         </div>
@@ -232,62 +213,62 @@
                 </div>
 
                 <!-- Stats Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-4 sm:mb-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
                     
                     <!-- Tax Liability Widget -->
-                    <div class="bg-white rounded-lg sm:rounded-xl shadow-sm border-l-4 border-red-500 p-4 sm:p-6 hover:shadow-md transition-shadow">
-                        <div class="flex justify-between items-start mb-3 sm:mb-4">
+                    <div class="bg-white rounded-xl shadow-sm border-l-4 border-red-500 p-6 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
                             <div>
-                                <p class="text-xs sm:text-sm text-gray-500 font-medium uppercase">Estimated Tax Due</p>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-red-600 mt-1">$12,400</h3>
+                                <p class="text-sm text-gray-500 font-medium uppercase">Estimated Tax Due</p>
+                                <h3 class="text-3xl font-bold text-red-600 mt-1">$12,400</h3>
                             </div>
                             <div class="p-2 bg-red-50 rounded-lg text-red-500">
-                                <i class="fas fa-exclamation-triangle text-sm sm:text-base"></i>
+                                <i class="fas fa-exclamation-triangle"></i>
                             </div>
                         </div>
-                        <p class="text-xs sm:text-sm text-gray-600">Due: <span class="font-bold">Apr 15, 2025</span></p>
+                        <p class="text-sm text-gray-600">Due: <span class="font-bold">Apr 15, 2025</span></p>
                     </div>
 
                     <!-- Cash Flow Widget -->
-                    <div class="bg-white rounded-lg sm:rounded-xl shadow-sm border-l-4 border-growth-green p-4 sm:p-6 hover:shadow-md transition-shadow">
-                        <div class="flex justify-between items-start mb-3 sm:mb-4">
+                    <div class="bg-white rounded-xl shadow-sm border-l-4 border-growth-green p-6 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
                             <div>
-                                <p class="text-xs sm:text-sm text-gray-500 font-medium uppercase">Cash on Hand</p>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">$84,250</h3>
+                                <p class="text-sm text-gray-500 font-medium uppercase">Cash on Hand</p>
+                                <h3 class="text-3xl font-bold text-gray-900 mt-1">$84,250</h3>
                             </div>
                             <div class="p-2 bg-emerald-50 rounded-lg text-growth-green">
-                                <i class="fas fa-wallet text-sm sm:text-base"></i>
+                                <i class="fas fa-wallet"></i>
                             </div>
                         </div>
-                        <p class="text-xs sm:text-sm text-growth-green"><i class="fas fa-arrow-up mr-1"></i> 12% vs last month</p>
+                        <p class="text-sm text-growth-green"><i class="fas fa-arrow-up mr-1"></i> 12% vs last month</p>
                     </div>
 
                     <!-- Accounts Receivable -->
-                    <div class="bg-white rounded-lg sm:rounded-xl shadow-sm border-l-4 border-blue-500 p-4 sm:p-6 hover:shadow-md transition-shadow">
-                        <div class="flex justify-between items-start mb-3 sm:mb-4">
+                    <div class="bg-white rounded-xl shadow-sm border-l-4 border-blue-500 p-6 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
                             <div>
-                                <p class="text-xs sm:text-sm text-gray-500 font-medium uppercase">Receivables</p>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">$28,450</h3>
+                                <p class="text-sm text-gray-500 font-medium uppercase">Receivables</p>
+                                <h3 class="text-3xl font-bold text-gray-900 mt-1">$28,450</h3>
                             </div>
                             <div class="p-2 bg-blue-50 rounded-lg text-blue-500">
-                                <i class="fas fa-hand-holding-usd text-sm sm:text-base"></i>
+                                <i class="fas fa-hand-holding-usd"></i>
                             </div>
                         </div>
-                        <p class="text-xs sm:text-sm text-gray-600"><span class="font-bold text-blue-600">5</span> pending invoices</p>
+                        <p class="text-sm text-gray-600"><span class="font-bold text-blue-600">5</span> pending invoices</p>
                     </div>
 
                     <!-- Monthly Profit -->
-                    <div class="bg-white rounded-lg sm:rounded-xl shadow-sm border-l-4 border-purple-500 p-4 sm:p-6 hover:shadow-md transition-shadow">
-                        <div class="flex justify-between items-start mb-3 sm:mb-4">
+                    <div class="bg-white rounded-xl shadow-sm border-l-4 border-purple-500 p-6 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
                             <div>
-                                <p class="text-xs sm:text-sm text-gray-500 font-medium uppercase">Monthly Profit</p>
-                                <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">$40,000</h3>
+                                <p class="text-sm text-gray-500 font-medium uppercase">Monthly Profit</p>
+                                <h3 class="text-3xl font-bold text-gray-900 mt-1">$40,000</h3>
                             </div>
                             <div class="p-2 bg-purple-50 rounded-lg text-purple-500">
-                                <i class="fas fa-chart-pie text-sm sm:text-base"></i>
+                                <i class="fas fa-chart-pie"></i>
                             </div>
                         </div>
-                        <p class="text-xs sm:text-sm text-growth-green"><i class="fas fa-arrow-up mr-1"></i> 8.3% margin increase</p>
+                        <p class="text-sm text-growth-green"><i class="fas fa-arrow-up mr-1"></i> 8.3% margin increase</p>
                     </div>
                 </div>
 
